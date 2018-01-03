@@ -22,7 +22,7 @@ var gulp = require('gulp'),
 
 var host = {
     path: 'dist/',
-    port: 3000,
+    port: 3333,
     html: 'index.html'
 };
 
@@ -117,7 +117,7 @@ gulp.task('open', function (done) {
     gulp.src('')
         .pipe(gulpOpen({
             app: browser,
-            uri: 'http://localhost:3000/app'
+            uri: 'http://localhost:3333/app'
         }))
         .on('end', done);
 });
@@ -142,3 +142,6 @@ gulp.task('default', ['connect', 'fileinclude', 'md5:css', 'md5:js', 'open']);
 
 //开发
 gulp.task('dev', ['connect', 'copy:images', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);
+
+
+

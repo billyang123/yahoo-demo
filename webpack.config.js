@@ -1,8 +1,6 @@
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var path = require('path');
 var webpack = require('webpack');
 var fs = require('fs');
-var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 var srcDir = path.resolve(process.cwd(), 'src');
 
@@ -21,11 +19,13 @@ function getEntry() {
     console.log(JSON.stringify(files));
     return files;
 }
-
+var entries = getEntry();
+var chunks = Object.keys(entries);
+console.log('chunks',chunks)
 module.exports = {
     cache: true,
     devtool: "#source-map",
-    entry: getEntry(),
+    entry: entries,
     output: {
         path: path.join(__dirname, "dist/js/"),
         publicPath: "dist/js/",
@@ -40,8 +40,13 @@ module.exports = {
         }
     },
     plugins: [
-        new CommonsChunkPlugin('common.js'),
-        new uglifyJsPlugin({
+        // new webpack.optimize.CommonsChunkPlugin('common.js'),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'common',
+            chunks: chunks,
+            minChunks: 4 || chunks.length 
+        }),
+        new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
             }

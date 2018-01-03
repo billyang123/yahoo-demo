@@ -1,19 +1,63 @@
-/*! functions.js */
 var $ = require('jquery');
-$.fn.slider = require('ui/slider.js');
+window.$  = window.jQuery = $;
+function slideFn() {
+    /** Main Slider **/
+    var timer;
+    var box = $('#PromoSlide');
+    var slideCount = box.find('.slide-text li').length;
+    var currSlide = $('.slide-text li').filter('.curr').index();
+    var nextSlide = currSlide + 1;
+    var fadeSpeed = 800;
+    $('.slide-text li').css({
+      width: 100/slideCount +'%'
+    })
+    //Start slides timer functions
+    function startTimer() {
+        timer = setInterval(function () {
+            box.find('.slide-item').eq(currSlide).fadeOut(fadeSpeed,function(){
+              box.find('.slide-item').eq(nextSlide).addClass('curr').fadeIn(fadeSpeed);
+              currSlide = nextSlide;
+              nextSlide = currSlide + 1 < slideCount ? currSlide + 1 : 0;
+            });
+            box.find('.slide-item, .slide-text li').removeClass('curr');
+            $('.slide-text li').eq(nextSlide).addClass('curr');
 
-$(window).load(function() {
-  var slider = $('.banner').slider({
-    dots: true,
-    fluid: true,
-    arrows: true
-  });
-  $('.slider-arrow').click(function() {
-    var fn = this.className.split(' ')[1];
+        }, 6000);
+    }
+    $('.slide-text li').click(function () {
+        clearInterval(timer);
+        startTimer();
+        currSlide = $('.slide-text li').index(this);
+        nextSlide = currSlide + 1 < slideCount ? currSlide + 1 : 0;;
+        box.find('.slide-item').fadeOut(fadeSpeed, function(){
+          box.find('.slide-item').eq($('.slide-text li').index(this)).addClass('curr').fadeIn(fadeSpeed);
+        });
+        box.find('.slide-item, .slide-text li').removeClass('curr');
+        $(this).addClass('curr');
+    });
+    startTimer();
+}
+function yahooService() {
+  var ySBox = $('#yahooService');
+  var lisLink = ySBox.find('.service-bd a');
+  var ysLBox = ySBox.find('.service-float');
+  var ysLItem = ySBox.find('.service-float-item');
+  lisLink.mouseenter(function() {
+    lisLink.removeClass('hover')
+    var index = lisLink.index(this);
+    console.log(index)
+    ysLItem.hide();
+    lisLink.eq(index).addClass('hover');
+    ysLItem.eq(index).show();
+    ysLBox.fadeIn(100);
+  })
+  ySBox.mouseleave(function() {
+    lisLink.removeClass('hover')
+    ysLBox.fadeOut(100);
+  })
+}
+slideFn();
+yahooService();
 
-    //  Either do slider.data('slider').next() or .prev() depending on the className
-    slider.data('slider')[fn]();
-  });
-});
 
 
