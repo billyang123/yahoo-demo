@@ -43,11 +43,25 @@
 .btn-small {
     padding: 2px 12px;
 }
+.btn-lg {
+    padding: 9px 18px;
+    font-size: 16px;
+}
 .btn-org {
 	background-color: #ffa100;
 	border: 0;
 }
-
+.btn-blue {
+	background-color: #448Eff;
+	border: 0;
+}
+.btn-red {
+	background-color: @red;
+	border: 0;
+}
+.text-org {
+	color: @yellow;
+}
 
 .ui-paging-container{color:#666;font-size: 12px;}
 .ui-paging-container ul{
@@ -104,3 +118,16 @@
 	color: #666;
 }
 .ui-paging-container li.ui-pager-disabled,.ui-paging-container li.ui-pager-disabled:hover{background-color: #f6f6f6;;cursor: default;border:none;color:#ddd;}
+
+
+/*相关样式*/
+#showbox { background:#eee;}
+#showbox span { background:url(../images/T12pdtXaldXXXXXXXX-2-2.png) repeat;}
+#showsum { left:25px; margin-top:10px;}
+#showsum span { border:1px solid #ddd;}
+#showsum span.sel { border:1px solid #f60;}
+
+.showpage { width:355px; position:relative;}
+.showpage a { display:block; width:15px; border:1px solid #ddd; height:60px; line-height:60px; background:#eee; text-align:center; font-size:18px; position:absolute; left:0; top:-62px; text-decoration:none; color:#999;}
+.showpage a#shownext { left:auto; right:0;}
+.showpage a:hover { background:#ccc; color:#777;}
