@@ -5,7 +5,7 @@
 
 @import "iconfont";
 @import "icon";
-
+@import "remodal";
 @import "component";
 
 .site-nav{
@@ -763,5 +763,167 @@
 	.paging-box {
 		padding: 20px 0;
 	}
+}
+
+.detail-meta-inner {
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	padding: 30px;
+	background-color: #fff;
+	.detail-property {
+		float: left;
+    	width: 100%;
+    	em {
+    		font-style: normal;
+    	}
+    	.yahoo-wrap {
+    		margin: 0 0 0 375px;
+		    color: #666;
+		    padding: 0 0 10px;
+    	}
+    	.detail-hd {
+    		margin-bottom: 24px;
+    	}
+    	.detail-hd h1 {
+    		line-height: 28px;
+    		font-size: 18px;
+    		color: #333;
+    	}
+    	.price {
+    		color: @red;
+    		font-size: 18px;
+    	}
+    	.emit {
+    		font-size: 18px;
+    	}
+    	.time {
+    		color: @red;
+
+    	}
+    	.fcs-panel {
+    		p {
+    			line-height: 22px;
+    		}
+    	}
+    	.fcs-panel {
+    		margin-bottom: 20px;
+    	}
+    	.time-panel {
+    		margin-bottom: 20px;
+    	}
+	}
+	.detail-pic {
+		margin-left: -100%;
+	    float: left;
+	    width: 375px;
+	    position: relative;
+	}
+	.detail-info {
+		float: left;
+		width: 490px;
+	}
+	.detail-shop-meta {
+		float: left;
+		width: 235px;
+	}
+	.options-panel {
+		padding: 5px 0;
+		.btn {
+			margin-right: 22px;
+			float: left;
+		}
+	}
+	.detail-shop-meta {
+		background-color: #EAEAEA;
+		width: 236px;
+		box-sizing: border-box;
+		.detail-shop-hd {
+			background-color: #959595;
+			height: 48px;
+			line-height: 48px;
+			color: #fff;
+			font-size: 20px;
+			text-align: center;
+		}
+		.detail-shop-bd {
+			padding: 8px 20px 0 20px;
+			p {
+				line-height: 30px;
+			}
+		}
+		.detail-shop-ft {
+			padding: 20px;
+			a {
+				display: block;
+				height: 34px;
+				line-height: 34px;
+				text-align: center;
+				border: 1px solid #333;
+				background-color: #fff;
+				color: #333;
+				margin-bottom: 12px;
+				border-radius: 2px;
+			}
+		}
+	}
+	.yugujs {
+		margin-top: 20px;
+		text-align: center;
+		.iconjs {
+			border: 1px solid #ccc;
+			box-shadow: 0px 2px 2px #ccc;
+			width: 30px;
+		    height: 30px;
+		    display: inline-block;
+		    text-align: center;
+		    margin: 0  10px;
+		    border-radius: 4px;
+		}
+		.iconfont {
+			font-size: 28px;
+			position: relative;
+			top: 5px;
+		}
+	}
+}
+
+.detail-main-tab {
+	box-sizing: border-box;
+	background-color: #BCBBBB;
+	border-bottom: 11px solid @red;
+	position: relative;
+	height: 50px;
+	.tbr { 
+		right: 0;
+		li a {
+			padding: 0 62px;
+		}
+	}
+	.tbl {
+		left: 0;
+	}
+	ul {
+		display: inline-block;
+		list-style: none;
+		position: absolute;
+		top: 0;
+		li {
+			float: left;
+			position: relative;
+			height: 39px;
+			a {
+				display: block;
+				text-align: center;
+				font-size: 16px;
+				color: #fff;
+				padding: 0 28px;
+				line-height: 44px;
+			}
+			&.active a {
+				background-color: @red;
+			}
+		}
+	}
+
 }
 
