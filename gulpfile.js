@@ -19,14 +19,12 @@ var gulp = require('gulp'),
     webpack = require('webpack'),
     webpackConfig = require('./webpack.config.js'),
     connect = require('gulp-connect');
-
 var host = {
     path: 'dist/',
-    port: 3333,
+    port: 3000,
     html: 'index.html'
 };
-
-//mac chrome: "Google chrome", 
+//mac chrome: "Google chrome",
 var browser = os.platform() === 'linux' ? 'Google chrome' : (
   os.platform() === 'darwin' ? 'Google chrome' : (
   os.platform() === 'win32' ? 'chrome' : 'firefox'));
@@ -117,7 +115,7 @@ gulp.task('open', function (done) {
     gulp.src('')
         .pipe(gulpOpen({
             app: browser,
-            uri: 'http://localhost:3333/app'
+            uri: 'http://127.0.0.1:3000/app'
         }))
         .on('end', done);
 });
@@ -142,6 +140,3 @@ gulp.task('default', ['connect', 'fileinclude', 'md5:css', 'md5:js', 'open']);
 
 //开发
 gulp.task('dev', ['connect', 'copy:images', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);
-
-
-
