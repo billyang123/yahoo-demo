@@ -21,7 +21,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect');
 var host = {
     path: 'dist/',
-    port: 3000,
+    port: 5555,
     html: 'index.html'
 };
 //mac chrome: "Google chrome",
@@ -115,7 +115,7 @@ gulp.task('open', function (done) {
     gulp.src('')
         .pipe(gulpOpen({
             app: browser,
-            uri: 'http://127.0.0.1:3000/app'
+            uri: 'http://127.0.0.1:5555/app'
         }))
         .on('end', done);
 });

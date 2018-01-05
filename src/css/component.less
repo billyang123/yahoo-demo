@@ -38,7 +38,8 @@
 }
 .btn {
 	color: #fff;
-    border-radius: 0;
+  border-radius: 0;
+	display: inline-block;
 }
 .btn-small {
     padding: 2px 12px;
@@ -46,6 +47,11 @@
 .btn-lg {
     padding: 9px 18px;
     font-size: 16px;
+}
+.btn.btn-gray {
+	background-color: #7e7f80;
+	border: 0;
+	color: #fff;
 }
 .btn-org {
 	background-color: #ffa100;
@@ -56,13 +62,15 @@
 	border: 0;
 }
 .btn-red {
-	background-color: @red;
+	background-color: red;
 	border: 0;
 }
 .text-org {
 	color: @yellow;
 }
-
+.text-red {
+	color: red;
+}
 .ui-paging-container{color:#666;font-size: 12px;}
 .ui-paging-container ul{
 	overflow: hidden;
@@ -77,7 +85,7 @@
 	background-color: #fff;
 }
 .ui-paging-container li.ui-pager{
-	cursor: pointer; 
+	cursor: pointer;
 	border:1px solid #ddd;
 	border-radius: 2px;
 }
@@ -94,7 +102,7 @@
 }
 .ui-paging-container li.ui-paging-toolbar input{
 	vertical-align:top;
-	line-height: 28px; 
+	line-height: 28px;
 	height:28px;
 	padding:0;
 	border:1px solid #ddd;
@@ -103,7 +111,7 @@
 	margin:0 0 0 5px;
 }
 .ui-paging-container li.ui-paging-toolbar a{
-	vertical-align: middle; 
+	vertical-align: middle;
 	text-decoration: none;
 	display: inline-block;
 	height:28px;
