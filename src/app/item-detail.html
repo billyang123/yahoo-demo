@@ -37,9 +37,9 @@
 							<p>结束时间：2017-11-12</p>
 						</div>
 						<div class="options-panel clear">
-							<button type="button" class="btn btn-blue btn-lg">立即出价</button>
-							<button type="button" class="btn btn-blue btn-lg">预约出价</button>
-							<button type="button" class="btn btn-red btn-lg">直接购买</button>
+							<button type="button" class="btn btn-blue btn-lg" data-remodal-target="bidAuctionModal">立即出价</button>
+							<button type="button" class="btn btn-blue btn-lg" data-remodal-target="reservationBid">预约出价</button>
+							<button type="button" class="btn btn-red btn-lg" data-remodal-target="directBid">直接购买</button>
 							<button type="button" class="btn btn-red btn-lg">关注商品</button>
 						</div>
 						<div class="yugujs">
@@ -117,6 +117,53 @@
 				hhhhhhhh
 			</div>
 		</div>
+	</div>
+	<div data-remodal-id="bidAuctionModal" class="item-modal">
+	  <button data-remodal-action="close" class="remodal-close"></button>
+		<div class="item-modal-title">出价竞拍</div>
+	  	<div class="item-modal-content">
+	  		<p class="mp">当前价格：<span class="num">1200</span> 日元(RMB <span class="num">227.98</span>元)</p>
+	  		<p class="mp">本次加价至少为：<span class="num">100</span>日元</p>
+	  		<p class="mp abs"><span class="bod">出价金额：</span><input type="text" />日元</p>
+	  		<p class="mp">折合人民币：0元</p>
+	  		<div class="btnline">
+	  			<button class="btn btn-lg btn-red">确定</button>
+	  		</div>
+	  		<div class="tipsarea">
+	  			<p><span>温馨提示：</span>本品商家好评为113，差评为2，供参考使用，出价成功后不能弃标，弃标要扣除弃标费用。</p>
+	  		</div>
+	  	</div>
+	</div>
+	<div data-remodal-id="reservationBid" class="item-modal">
+	  <button data-remodal-action="close" class="remodal-close"></button>
+		<div class="item-modal-title">预约出价</div>
+	  	<div class="item-modal-content">
+	  		<p class="mp">当前价格：<span class="num">1200</span> 日元(RMB <span class="num">227.98</span>元)</p>
+	  		<p class="mp">本次加价至少为：<span class="num">100</span>日元</p>
+	  		<p class="mp num">为避免被人恶意抬价，您出的价格会在结束前五分钟由系统进行出价，也为您节省了宝贵时间</p>
+	  		<p class="mp abs"><span class="bod">出价金额：</span><input type="text" />日元</p>
+	  		<p class="mp">折合人民币：0元</p>
+	  		<div class="btnline">
+	  			<button class="btn btn-lg btn-red">确定</button>
+	  		</div>
+	  		<div class="tipsarea">
+	  			<p><span>温馨提示：</span>本品商家好评为113，差评为2，供参考使用，出价成功后不能弃标，弃标要扣除弃标费用。</p>
+	  		</div>
+	  	</div>
+	</div>
+	<div data-remodal-id="directBid" class="item-modal">
+	  <button data-remodal-action="close" class="remodal-close"></button>
+		<div class="item-modal-title">直接购买</div>
+	  	<div class="item-modal-content">
+	  		<p class="mp">本次直接购买价为：<span class="num">1200</span> 日元(RMB <span class="num">227.98</span>元)</p>
+	  		<p class="mp abs zgj"><span class="bod">直购价：</span><input type="text" />日元</p>
+	  		<div class="btnline">
+	  			<button class="btn btn-lg btn-red">确定</button>
+	  		</div>
+	  		<div class="tipsarea">
+	  			<p><span>温馨提示：</span>本品商家好评为113，差评为2，供参考使用，出价成功后不能弃标，弃标要扣除弃标费用。</p>
+	  		</div>
+	  	</div>
 	</div>
 	@@include('footer.inc')
 <script src="../js/common.js"></script>

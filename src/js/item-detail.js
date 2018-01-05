@@ -1,5 +1,6 @@
+var $ = require('jquery');
 var detailPicShow = require('ui/detailPicShow.js');
-
+var remodal = require('ui/remodal.js');
 var showproduct = {
 	"boxid":"showbox",
 	"sumid":"showsum",
@@ -15,3 +16,6 @@ var showproduct = {
 	"nextid":"shownext"
 };//参数定义
 detailPicShow(showproduct);
+
+var inst = $('[data-remodal-id]').remodal();
+//inst.open();
