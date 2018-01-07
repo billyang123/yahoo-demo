@@ -37,13 +37,13 @@
 							<p>结束时间：2017-11-12</p>
 						</div>
 						<div class="options-panel clear">
-							<button type="button" class="btn btn-blue btn-lg" data-remodal-target="bidAuctionModal">立即出价</button>
-							<button type="button" class="btn btn-blue btn-lg" data-remodal-target="reservationBid">预约出价</button>
-							<button type="button" class="btn btn-red btn-lg" data-remodal-target="directBid">直接购买</button>
-							<button type="button" class="btn btn-red btn-lg">关注商品</button>
+							<button type="button" class="btn btn-primary" data-remodal-target="bidAuctionModal">立即出价</button>
+							<button type="button" class="btn btn-primary" data-remodal-target="reservationBid">预约出价</button>
+							<button type="button" class="btn btn-danger" data-remodal-target="directBid">直接购买</button>
+							<button type="button" class="btn btn-danger">关注商品</button>
 						</div>
 						<div class="yugujs">
-							<p>
+							<p data-remodal-target="calculation">
 								购买此商品的预估总价费用 
 								<span class="iconjs"><i class="iconfont icon-jisuanqi"></i></span> 
 								<span class="text-org">费用试算</span>
@@ -127,7 +127,7 @@
 	  		<p class="mp abs"><span class="bod">出价金额：</span><input type="text" />日元</p>
 	  		<p class="mp">折合人民币：0元</p>
 	  		<div class="btnline">
-	  			<button class="btn btn-lg btn-red">确定</button>
+	  			<button class="btn btn-danger">确定</button>
 	  		</div>
 	  		<div class="tipsarea">
 	  			<p><span>温馨提示：</span>本品商家好评为113，差评为2，供参考使用，出价成功后不能弃标，弃标要扣除弃标费用。</p>
@@ -144,7 +144,7 @@
 	  		<p class="mp abs"><span class="bod">出价金额：</span><input type="text" />日元</p>
 	  		<p class="mp">折合人民币：0元</p>
 	  		<div class="btnline">
-	  			<button class="btn btn-lg btn-red">确定</button>
+	  			<button class="btn btn-danger">确定</button>
 	  		</div>
 	  		<div class="tipsarea">
 	  			<p><span>温馨提示：</span>本品商家好评为113，差评为2，供参考使用，出价成功后不能弃标，弃标要扣除弃标费用。</p>
@@ -158,16 +158,111 @@
 	  		<p class="mp">本次直接购买价为：<span class="num">1200</span> 日元(RMB <span class="num">227.98</span>元)</p>
 	  		<p class="mp abs zgj"><span class="bod">直购价：</span><input type="text" />日元</p>
 	  		<div class="btnline">
-	  			<button class="btn btn-lg btn-red">确定</button>
+	  			<button class="btn btn-danger">确定</button>
 	  		</div>
 	  		<div class="tipsarea">
 	  			<p><span>温馨提示：</span>本品商家好评为113，差评为2，供参考使用，出价成功后不能弃标，弃标要扣除弃标费用。</p>
 	  		</div>
 	  	</div>
 	</div>
+	
+	<div data-remodal-id="calculation" class="calculation-modal" id="calculationModal" data-rate="0.061">
+		<div class="calculation-modal-title">费用试算</div>
+	  	<div class="calculation-modal-content">
+	  		<div class="cal-form">
+		  		<p class="mp">
+		  			<span class="tt">商品金额：</span>
+		  			<input class="calItemPrice" type="text" style="width: 170px;" /> 円
+		  		</p>
+		  		<p class="mp">
+		  			<span class="tt">含8%消费税：</span>
+		  			<select class="calExciseTax">
+		  				<option value="0">无</option>
+		  				<option value="0.08">有</option>
+		  			</select>
+		  			<a href="#">说明</a>
+		  		</p>
+		  		<p class="mp">
+		  			<span class="tt">预估当地运费：</span>
+		  			<input type="text" class="calLocalFreight"  style="width: 80px;" /> 円
+		  			<a href="#">说明</a>
+		  		</p>
+		  		<p class="mp">
+		  			<span class="tt">预估商品重量：</span>
+		  			<input type="text" class="calItemWeight" style="width: 50px;"/> 公斤
+		  		</p>
+		  		<p class="mp">
+		  			<span class="tt">国际配送方式：</span>
+		  			<select class="calItemMode" >
+		  				<option value="EMS">EMS</option>
+		  				<option value="航空件">航空件</option>
+		  				<option value="SAL">SAL</option>
+		  				<option value="船运">船运</option>
+		  			</select>
+		  			<a href="#">说明</a>
+		  		</p>
+		  		<p class="mp">
+		  			<span class="tt">预估包装费用：</span>
+		  			<select class="calPackingCost">
+		  				<option value="200">200</option>
+		  				<option value="500">500</option>
+		  				<option value="1000">1000</option>
+		  				<option value="1500">1500</option>
+		  			</select>
+		  			<a href="#">说明</a>
+		  		</p>
+		  		<p class="btnption">
+		  			<button class="btn btn-sm btn-danger js-calculation" style="margin-right: 10px;">立即试算</button>
+		  			<button class="btn btn-sm btn-default js-reset">重置</button>
+		  		</p>
+	  		</div>
+	  		<div class="cal-result">
+	  			<div class="cal-result-box">
+		  			<h3 class="cal-res-hd clear">
+		  				<span class="tt">付款金额</span>
+		  				<span class="tf">近日汇率：<em data-bind-calculation="huilv">0.61</em></span>
+		  			</h3>
+		  			<div class="cal-res-bd">
+			  			<p class="clear">
+		  					<span class="t">商品金额</span>
+		  					<span class="n"><em data-bind-calculation="spje">2850</em> 日元</span>
+		  				</p>
+		  				<p class="clear">
+		  					<span class="t">商品税金</span>
+		  					<span class="n"><em data-bind-calculation="spsj">228</em> 日元</span>
+		  				</p>
+		  				<p class="clear">
+		  					<span class="t">日本当地运费</span>
+		  					<span class="n"><em data-bind-calculation="rbddyf">228</em> 日元</span>
+		  				</p>
+		  				<p class="clear">
+		  					<span class="t">国际运费</span>
+		  					<span class="n"><em data-bind-calculation="gjyf">228</em> 日元</span>
+		  				</p>
+		  				<p class="clear">
+		  					<span class="t">包装费</span>
+		  					<span class="n"><em data-bind-calculation="bzf">228</em> 日元</span>
+		  				</p>
+		  				
+		  				<p class="clear">
+		  					<span class="t">银行汇款手续费</span>
+		  					<span class="n"><em data-bind-calculation="yhhksxf">228</em> 日元</span>
+		  				</p>
+		  			</div>
+	  				<div class="cal-res-ft">
+	  					<p class="clear">
+		  					<span class="t">合计：<em data-bind-calculation="heji">383</em> <em class="text-red">元</em></span>
+		  					<span class="n">（<em data-bind-calculation="hejirmb">6278</em>日元）</span>
+		  				</p>
+	  				</div>
+  				</div>
+	  		</div>
+	  	</div>
+	</div>
 	@@include('footer.inc')
 <script src="../js/common.js"></script>
 <script src="../js/item-detail.js"></script>
+<script src="../js/calculation.js"></script>
 </body>
 </html>
 	

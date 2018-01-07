@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+@@include('header.inc')
+<body>
+	@@include('site.inc')
+	@@include('top.inc')
+	<div class="wrap conlistbox">
+		<form>
+			<h2 class="title">支付尾款</h2>
+			<table class="ui celled table">
+				<thead>
+					<tr>
+						<th width="280">商品</th>
+						<th>得标价（円）</th>
+						<th>数量</th>
+						<th>入库重量（g）</th>
+						<th>服务费</th>
+						<th>日本银行转账费</th>
+						<th>日本消费税</th>
+						<th>日本运费</th>
+						<th>仓储费</th>
+						<th>其他费用</th>
+						<th width="50">申报金额</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="item-media">
+								<div class="pic"><img src="#" alt=""></div>
+								<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+								<p class="hid">商品ID：h280984309</p>
+							</div>
+						</td>
+						<td>8360</td>
+						<td>1</td>
+						<td>780</td>
+						<td>23</td>
+						<td>418</td>
+						<td>300</td>
+						<td>111</td>
+						<td>111</td>
+						<td>111</td>
+						<td><input type="text" style="width: 50px;" /></td>
+					</tr>
+				</tbody>
+				<tfoot>
+			    <tr>
+					<th colspan="2">
+				      	商品总价：8360（RMB 501.60元）
+				    </th>
+				    <th colspan="1">
+						共1件
+					</th>
+					<th colspan="1">
+						总重：780 g
+					</th>
+					<th colspan="2">
+						<p class="total-nopay">已付小计：900（RMB 54.81 元）</p>
+					</th>
+					<th colspan="3">
+						<p class="total-nopay">未付小计：900（RMB 54.81 元）</p>
+					</th>
+			  	</tr>
+				</tfoot>
+			</table>
+			<div class="care">
+				<p>请注意：1、申报金额大于15000日元时，海关要求征税的可能性较高；2、当商品丢失时，运输公司将根据申报金额以及是否加保来判定赔偿金额。</p>
+			</div>
+			<div class="packinglist">
+				<h3 class="h3title">装箱清单</h3>
+				<table class="ui celled table">
+					<thead>
+						<tr>
+							<th>箱号</th>
+							<th>包装后重量</th>
+							<th>国际配送单号</th>
+							<th>箱内明细</th>
+							<th>外箱费用</th>
+							<th>加强包装费用</th>
+							<th>国际运费</th>
+							<th>保险费</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>xxxx</td>
+							<td>xxxx</td>
+							<td><a href="#">查看</a></td>
+							<td>xxxx</td>
+							<td>xxxx</td>
+							<td>xxxx</td>
+							<td>xxxx</td>
+						</tr>
+					</tbody>
+					<tfoot>
+					    <tr>
+							<th colspan="8">
+						      	<p class="total-nopay">未付小计：900（RMB 54.81 元）</p>
+						    </th>
+					  	</tr>
+					</tfoot>
+				</table>
+			</div>
+			<div class="total-account">
+				<h3 class="h3title">尾款合计</h3>
+				<p class="yuer">目前账户余额：<span class="text-red">880</span> 元 <button class="btn btn-danger btn-xs">立即充值</button></p>
+				<p class="heji">尾款合计：<span class="text-red">128.21</span> 元</p>
+			</div>
+			<div class="adressform">
+				<h3 class="h3title">收货地址</h3>
+				<div class="adress-area clear">
+					<div class="adress-item" style="width: 220px;">
+						<span>收货地址：</span>
+						<span>陈晓</span>
+					</div>
+					<div class="adress-item" style="width: 355px;">
+						<span>所在地区：</span>
+						<span style="width: 60px">上海</span>
+						<span style="width: 90px">市辖区</span>
+						<span style="width: 100px">迷航区</span>
+					</div>
+					<div class="adress-item" style="width: 400px;">
+						<span>街道地址：</span>
+						<span>12号街道晶石家园10005号</span>
+					</div>
+					<div class="adress-item" style="width: 220px;">
+						<span>邮政编码：</span>
+						<span>321000</span>
+					</div>
+					<div class="adress-item" style="width: 220px;">
+						<span>手机号码：</span>
+						<span>1987888433</span>
+					</div>
+					<div class="adress-item" style="width: 220px;">
+						<span>电话号码：</span>
+						<span>0571-888834345</span>
+					</div>
+				</div>
+				
+			</div>
+			<div class="shipping">
+				<h3 class="h3title">国际配送方式</h3>
+				<div class="shipping-box">
+					<p>海外直接宅配到府（<span class="text-red">配送地区不属于中国时请在备注中说明</span>）</p>
+					<p>
+						<label class="radio-inline">
+							<input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1"> EMS
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> 航空件
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option4"> SAL
+						</label>
+
+						<label class="radio-inline">
+							<input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3"> 海运
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="optio5"> 11区包清关专线
+						</label>
+						<label>
+							不含包装的预估费用：<span class="text-red">5038</span>,抵达时间约<span class="text-red">4 ~ 6</span>天
+						</label>
+					</p>
+					<p class="tips-bx">
+						<label class="radio-inline">
+							<input type="checkbox" name="inlineCheckbox2" id="" value="option1"> <span class="text-red">注意事项：</span>
+						</label>
+						<ul class="tips">
+							<li><span class="text-red">1、客人需自行处理海关事宜</span></li>
+							<li><span class="text-red">2、易碎品高价品建议EMS并加保险</span></li>
+							<li><span class="text-red">3、到货时请先验货后签收，签收后发现丢失或破损将无法索赔</span></li>
+						</ul>	
+					</p>
+				</div>
+			</div>
+			<div class="shipping">
+				<h3 class="h3title">项目确认</h3>
+				<div class="shipping-box">
+					<p>
+						<label for="">
+							<input type="checkbox"> 易碎、易变形、贵重物品，加强包装 <a href="#"  class="xxdetail">详细说明</a>
+						</label>
+					</p>
+					<p>
+						<label class="radio-inline">
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 加保
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 不加保
+						</label>
+						<a href="#" class="xxdetail">详细说明</a>
+					</p>
+				</div>
+			</div>
+			<div class="remarks">
+				<h3 class="h3title">我的备注</h3>
+				<div class="remarks-box">
+						备注备注备注备注
+				</div>
+			</div>
+			<div class="submit-box">
+				<button class="btn btn-danger" type="submit">确定支付</button>
+				<a class="btn btn-default" href="#">返回</a>
+			</div>
+		</form>
+	</div>
+	@@include('footer.inc')
+<script src="../js/common.js"></script>
+<script src="../js/receiving.js"></script>
+</body>
+</html>

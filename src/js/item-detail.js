@@ -1,6 +1,8 @@
 var $ = require('jquery');
 var detailPicShow = require('ui/detailPicShow.js');
+//import detailPicShow from 'ui/detailPicShow.js'
 var remodal = require('ui/remodal.js');
+
 var showproduct = {
 	"boxid":"showbox",
 	"sumid":"showsum",

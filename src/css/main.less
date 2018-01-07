@@ -2,12 +2,13 @@
 @import "skin";
 
 @import "reset";
-
+@import "component";
 @import "iconfont";
 @import "icon";
 @import "remodal";
 @import "table";
-@import "component";
+@import "form";
+@import "button";
 
 .site-nav{
 	background-color: #818181;
@@ -930,8 +931,9 @@
 
 
 .conlistbox {
+	box-sizing: border-box;
 	background-color: #fff;
-	padding: 20px 80px;
+	padding: 20px 65px;
 	margin-top: 20px;
 	.title {
 		font-size: 18px;
@@ -1018,24 +1020,91 @@
 	.submit-box {
 		text-align: center;
 		padding: 40px 0;
-		.pbtn {
-			display: inline-block;
-			box-sizing: border-box;
-			text-align: center;
-			height: 32px;
-			line-height: 32px;
-			width: 100px;
-			color: #fff;
-			font-size: 16px;
-			margin: 0 10px;
-			border: 0;
+		.btn {
+			margin: 0 15px;
+		}
+	}
+	.care {
+		background-color: #F4F5F6;
+		text-align: right;
+		p {
+			color: #D10000;
+			line-height: 20px;
+			padding: 5px;
+		}
+		margin-bottom: 20px;
+	}
+	.adressform {
+		.adress-area {
+			padding: 0 10px 0 40px;
+		}
+		.adress-item {
+			float: left;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			line-height: 26px;
+			input[type="text"]{
+				width: 170px;
+				&.lg {
+					width: 300px;
+				}
+			}
+			span {
+				display: inline-block;
+			}
+			select {
+				min-width: 60px;
+			}
+		}
+	}
+	.other-adress-area {
+		padding: 10px 106px;
+	}
+	.shipping {
+		.shipping-box {
+			padding-left: 40px;
+		}
+		.tips-bx {
+			padding-left: 5px;
+		}
+		p {
+			line-height: 22px;
 
 		}
-		.pbtn-red {
-			background-color: @red;
+		label {
+			line-height: 24px;
+			margin-right: 25px;
+			input {
+				position: relative;
+				top: -2px;
+			}
 		}
-		.pbtn-back {
-			background-color: #7e7f80;
+		ul {
+			padding-left: 68px;
 		}
+		.xxdetail {
+			background-color: #EBED00;
+			color: #333;
+			padding: 0 8px;
+			margin-left: 10px;
+			display: inline-block;
+		}
+	}
+}
+.notice-main {
+	width: 978px;
+	padding: 50px 0 50px 0;
+	text-align: center;
+	background-color: #fff;
+	margin: 55px auto;
+	img {
+		display: inline-block;
+		margin-bottom: 25px;
+		width: 121px;
+		height: 121px;
+		background-color: red;
+	}
+	p {
+		margin-bottom: 60px;
 	}
 }
