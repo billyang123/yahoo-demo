@@ -8,6 +8,7 @@
 	<meta name="copyright" content="billyang">
 	<!-- <link rel="stylesheet" href="../css/style.min_bd18a267a8.css"> -->
     <link rel="stylesheet" href="../css/style.min.css">
+    <script src="../js/common.js"></script>
 </head>
 <body>
 	<div class="site-nav site-nav-status-login">
@@ -102,7 +103,7 @@
 			<table class="ui celled table">
 				<thead>
 					<tr>
-						<th width="280">商品</th>
+						<th width="260">商品</th>
 						<th>得标价（円）</th>
 						<th>数量</th>
 						<th>入库重量（g）</th>
@@ -138,12 +139,13 @@
 				</tbody>
 				<tfoot>
 			    <tr>
-					<th colspan="2">
-				      	商品总价：8360（RMB 501.60元）
+					<th colspan="3">
+				      	<p class="clear">
+							<span class="total-price">商品总价：8360（RMB 501.60元）</span>
+							<span class="total-count">共1件</span>
+						</p>
 				    </th>
-				    <th colspan="1">
-						共1件
-					</th>
+				   
 					<th colspan="1">
 						总重：780 g
 					</th>
@@ -331,7 +333,6 @@
 		</div>
 	</div>
 </div>
-<script src="../js/common.js"></script>
 <script src="../js/receiving.js"></script>
 </body>
 </html>
