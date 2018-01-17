@@ -1,1 +1,1 @@
-var distpicker = require('distpicker');
+var distpicker = require('ui/distpicker');

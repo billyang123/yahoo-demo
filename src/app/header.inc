@@ -6,4 +6,5 @@
 	<meta name="copyright" content="billyang">
 	<!-- <link rel="stylesheet" href="../css/style.min_bd18a267a8.css"> -->
     <link rel="stylesheet" href="../css/style.min.css">
+    <script src="../js/common.js"></script>
 </head>

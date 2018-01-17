@@ -79,7 +79,8 @@
 	.search-img-tag {
 		float: left;
 		img {
-			height: 41px;
+			height: 39px;
+    		box-shadow: -1px 1px 1px #ddd;
 		}
 	}
 	.search-panel {
@@ -102,7 +103,7 @@
 	.search-input {
 		border: none;
 		background-color: #f4f4f4;
-		margin: 2px 2px 3px 2px;
+		margin: 2px 2px 2px 2px;
 		width: 312px;
 		height: 32px;
 		float: left;
@@ -116,6 +117,7 @@
 		    width: 100%;
 		    text-align: center;
 		    outline: 0;
+		    font-size: 12px;
 		}
 	}
 	.search-form {
@@ -136,6 +138,8 @@
 		border: 0;
 		background-color: #f4f4f4;
 		border-radius: 0;
+		color: #666;
+    	font-weight: bold;
 	}
 	.yahoo-fir-link {
 		position: absolute;
@@ -148,10 +152,19 @@
 			a {
 				color: #BEBEBE;
 				display: block;
+				&:hover {
+					.iconfont, .yfl-text {
+						color: @org;
+					}
+					.iconfont {
+						border: 2px solid @org;
+					}
+					
+				}
 			}
 			.iconfont {
 				font-size: 22px;
-			    border: 1px solid #BEBEBE;
+			    border: 2px solid #BEBEBE;
 			    border-radius: 50%;
 			    padding: 7px;
 			}
@@ -181,7 +194,7 @@
 			color: #fff;
 			font-weight: bold;
 			width: 220px;
-			font-size: 16px;
+			font-size: 15px;
 		}
 		.service-xtro {
 			position: absolute;
@@ -193,8 +206,9 @@
 				line-height: 32px;
 				text-align: center;
 				display: inline-block;
-				width: 280px;
+				
 				font-size: 14px;
+				padding: 0 34px;
 			}
 		}
 	}
@@ -206,7 +220,7 @@
 	    transform: translateZ(0);
 	    display: none;
 	    position: absolute;
-	    left: 220px;
+	    left: 218px;
 	    top: 0;
 	    padding: 0 0 0 18px;
 	    width: 720px;
@@ -215,7 +229,7 @@
 	    box-shadow: 0px 2px 10px #bebebe;
 	    background-color: #FaFbFc;
 	    color: #333;
-	    font-size: 12px;
+	    font-size: 13px;
 	    z-index: 22;
 	    .service-panel {
 			border-bottom: 1px solid #efefef;
@@ -232,6 +246,9 @@
 				line-height: 24px;
 				a {
 					margin-right: 15px;
+					&:hover {
+						color: #ff9f0c;
+					}
 				}
 			}
 	    	&:last-child {
@@ -262,11 +279,19 @@
 			    	color: #333;
 			    	padding: 0 30px;
 			    	&:hover, &.hover {
-			    		background-color: #818181;
+			    		background-color: #999;
 			    		color: #fff;
 			    	}
 			    }
 			}
+		}
+		&.yahoo-service-pos {
+			width: 218px;
+			position: absolute;
+		    top: 0;
+		    left: 1px;
+		    z-index: 9;
+		    box-shadow: 0 0 5px #aaa;
 		}
 	}
 	.yahoo-promo {
@@ -387,13 +412,14 @@
 			position: absolute;
 			left: 50%;
 			top: 0;
-			margin-left: -50px;
+			margin-left: -67px;
 			padding: 12px 0;
-			width: 100px;
+			width: 135px;
 			&:hover {
 				box-shadow: 0px 2px 10px #bebebe;
 				.iconfont {
 					color: #FFA100;
+
 				}
 				.snl-txt {
 					color: #FFA100;
@@ -403,6 +429,9 @@
 				position: relative;
 				font-size: 38px;
 				top: 15px;
+				&.icon-jinbi {
+					font-weight: bold;
+				}
 			}
 			img {
 				width: 50px;
@@ -431,6 +460,9 @@
 	font-size: 14px;
 	font-weight: bold;
 }
+.product-recommended {
+	margin-top: 20px;
+}
 .seller-recommended {
 	//background-color: #fff;
 	// .seller-title {
@@ -443,14 +475,18 @@
 	// 	overflow: hidden;
 	// }
 	margin-bottom: 20px;
+	.wrap {
+		overflow: hidden;
+	}
 	ul {
 		list-style: none;
-		padding-top: 20px;
+		padding-top: 12px;
+		width: 1212px;
 	}
 	li {
 		float: left;
-		margin-right: 5px;
-		margin-bottom: 5px;
+		margin-right: 13px;
+		margin-bottom: 10px;
 		img {
 			width: 225px;
 			display: inline-block;
@@ -464,6 +500,7 @@
 		width: 225px;
 		height: 85px;
 		overflow: hidden;
+		box-shadow: 2px 2px 3px #999;
 
 	}
 }
@@ -532,6 +569,7 @@
 			.price {
 				color: #F50000;
 				font-style: normal;
+				font-weight: bold;
 			}
 			.info {
 				border-top: 1px solid #efefef;
@@ -596,10 +634,13 @@
 
 .filter-condition {
 	.filter-inner {
-		background-color: #f1f2f4;
-		padding: 15px;
+		box-shadow: 0 0 2px #999;
+		margin-top: 1px;
+		border-bottom: 1px solid #999;
+    	box-sizing: border-box;
 	}
 	.filter-box {
+		border: 15px solid #f1f2f4;
 		background-color: #feffff;
 	}
 	.f-row {
@@ -654,13 +695,12 @@
 	}
 	.filter-t7ab {
 		position: relative;
+		background-color: #D4D5D6;
 		height: 40px;
-		width: @main-width;
-		margin: 0 auto;
 		ul {
 			position: absolute;
-			right: 0;
-			top: 0;
+			right: 15px;
+			top: 8px;
 			li {
 				float: left;
 				&.active a {
@@ -672,10 +712,14 @@
 					padding: 4px 8px;
 					background-color: #fff;
 					color: #333;
+					font-size: 12px;
 					&:hover {
 						background-color: @yellow;
 						color: @white;
 					}
+				}
+				.iconfont {
+					font-size: 12px;
 				}
 
 			}
@@ -683,23 +727,24 @@
 	}
 }
 .filter-result-main {
+	padding-top: 20px;
 	.result-list {
 		width: @main-width;
 		margin: 0 auto;
 		overflow: hidden;
 		ul {
-			width: @main-width + 10px;
+			width: @main-width + 21px;
 		}
 	}
 	.item {
 		box-sizing: border-box;
 		width: 227px;
-		height: 397px;
+		height: 387px;
 		float: left;
 		padding: 8px 8px 0 8px;
 		background-color: @white;
-		border: 1px solid #f3f4f5;
-		margin-right: 10px;
+		border: 1px solid #e0e0e0;
+		margin-right: 11px;
 		margin-bottom: 10px;
 		.pic {
 			width: 209px;
@@ -730,7 +775,7 @@
 		}
 	}
 	.price-box {
-		height: 60px;
+		height: 49px;
 		p {
 			line-height: 16px;
 		}
@@ -754,12 +799,19 @@
 	.time-box {
 		border-top: 1px solid #efefef;
 		p {
-			line-height: 50px;
+			line-height: 46px;
+			font-style: italic;
 		}
 		em {
-			font-style: normal;
+			font-style: italic;
 			color: @red;
 			margin-right: 4px;
+		}
+		.iconfont {
+			font-style: normal;
+			font-size: 22px;
+			position: relative;
+			top: 2px;
 		}
 	}
 	.paging-box {
@@ -772,6 +824,7 @@
 	margin-bottom: 10px;
 	padding: 30px;
 	background-color: #fff;
+	box-shadow: 0px 3px 8px #eee;
 	.detail-property {
 		float: left;
     	width: 100%;
@@ -779,9 +832,13 @@
     		font-style: normal;
     	}
     	.yahoo-wrap {
-    		margin: 0 0 0 375px;
+    		margin: 0 0 0 355px;
 		    color: #666;
 		    padding: 0 0 10px;
+    	}
+    	.detail-hd, .fcs-panel, .time-panel {
+    		padding-left: 27px;
+    		font-size: 14px;
     	}
     	.detail-hd {
     		margin-bottom: 24px;
@@ -794,6 +851,7 @@
     	.price {
     		color: @red;
     		font-size: 18px;
+    		font-weight: bold;
     	}
     	.emit {
     		font-size: 18px;
@@ -830,9 +888,13 @@
 	}
 	.options-panel {
 		padding: 5px 0;
+		text-align: center;
 		.btn {
 			margin-right: 22px;
-			float: left;
+			display: inline-block;
+			&:last-child {
+				margin-right: 0;
+			}
 		}
 	}
 	.detail-shop-meta {
@@ -851,6 +913,7 @@
 			padding: 8px 20px 0 20px;
 			p {
 				line-height: 30px;
+				font-size: 14px;
 			}
 		}
 		.detail-shop-ft {
@@ -865,6 +928,10 @@
 				color: #333;
 				margin-bottom: 12px;
 				border-radius: 2px;
+				&:hover {
+					color: @org;
+					border-color: @org;
+				}
 			}
 		}
 	}
@@ -874,17 +941,19 @@
 		.iconjs {
 			border: 1px solid #ccc;
 			box-shadow: 0px 2px 2px #ccc;
-			width: 30px;
-		    height: 30px;
+			width: 25px;
+		    height: 25px;
 		    display: inline-block;
 		    text-align: center;
 		    margin: 0  10px;
 		    border-radius: 4px;
+		    position: relative;
+		    top: -2px;
 		}
 		.iconfont {
-			font-size: 28px;
+			font-size: 22px;
 			position: relative;
-			top: 5px;
+			top: 4px;
 		}
 	}
 }
@@ -892,7 +961,7 @@
 .detail-main-tab {
 	box-sizing: border-box;
 	background-color: #BCBBBB;
-	border-bottom: 11px solid @red;
+	border-bottom: 4px solid @red;
 	position: relative;
 	height: 50px;
 	.tbr {
@@ -912,14 +981,14 @@
 		li {
 			float: left;
 			position: relative;
-			height: 39px;
+			height: 50px;
 			a {
 				display: block;
 				text-align: center;
-				font-size: 16px;
+				font-size: 15px;
 				color: #fff;
 				padding: 0 28px;
-				line-height: 44px;
+				line-height: 50px;
 			}
 			&.active a {
 				background-color: @red;
@@ -928,7 +997,9 @@
 	}
 
 }
-
+.detail-main {
+	box-shadow: 0px 3px 8px #eee;
+}
 
 .conlistbox {
 	box-sizing: border-box;
@@ -990,18 +1061,26 @@
 	.total-count {
 		float: right;
 	}
+	.ui.table tfoot th {
+		background-color: #fff;
+		padding: 0 10px;
+	}
 	h3.h3title {
 		line-height: 35px;
 		padding: 0 20px;
 		border-bottom: 1px solid #eee;
 		margin-bottom: 6px;
-		margin-top: 10px;
+		margin-top: 14px;
 		font-size: 16px;
+
 	}
 	.total-account {
 		p {
 			line-height: 24px;
 			padding: 0 20px;
+		}
+		.text-red {
+			font-weight: bold;
 		}
 		.yuer {
 			position: relative;
@@ -1011,6 +1090,7 @@
 		}
 	}
 	.remarks {
+		margin-top: 10px;
 		&-box {
 			border: 1px solid #eee;
 			padding: 20px;
@@ -1022,6 +1102,7 @@
 		padding: 40px 0;
 		.btn {
 			margin: 0 15px;
+
 		}
 	}
 	.care {
@@ -1108,3 +1189,8 @@
 		margin-bottom: 60px;
 	}
 }
+
+.personal-center {
+	margin-top: 20px;
+}
+@import './personal-center-sub';

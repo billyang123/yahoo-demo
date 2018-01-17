@@ -7,10 +7,8 @@
 
 	<div class="screen-outer">
 		<div class="screen-inner wrap clear">
-			<div class="service-xtro">
-				<a href="#">yahoo!JAPAN拍卖一分钟上手指南</a>
-			</div>
-			<div class="service-hd">yahoo!JAPAN拍卖分类</div>
+			@@include('outerNav.inc')
+			@@include('yahooServer.inc')
 			<div class="bread-crumbs">
 				你现在的位置：<a href="#">首页</a> &lt; <a href="#">拍卖</a> &lt; <a href="#">古董、收藏 </a> &lt; <a href="#">工艺品收藏该分类</a>
 			</div>
@@ -117,29 +115,29 @@
 									<input type="text" />
 									<span>-</span>
 									<input type="text" />
-									<button type="button" class="btn btn-small btn-org">确定</button>
+									<button type="button" class="btn btn-warning btn-sm" style="padding: 2px 8px;">确定</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="filter-t7ab">
-			<ul>
-				<li class="active">
-					<a href="#">竞价次数<i class="iconfont icon-xiajiangjiantou"></i></a>
-				</li>
-				<li>
-					<a href="#">当前出价<i class="iconfont icon-shangshengjiantou"></i></a>
-				</li>
-				<li>
-					<a href="#">剩余时间<i class="iconfont icon-xiajiangjiantou"></i></a>
-				</li>
-				<li>
-					<a href="#">直购价<i class="iconfont icon-shangshengjiantou"></i></a>
-				</li>
-			</ul>
+			<div class="filter-t7ab">
+				<ul>
+					<li class="active">
+						<a href="#">竞价次数<i class="iconfont icon-xiajiangjiantou"></i></a>
+					</li>
+					<li>
+						<a href="#">当前出价<i class="iconfont icon-shangshengjiantou"></i></a>
+					</li>
+					<li>
+						<a href="#">剩余时间<i class="iconfont icon-xiajiangjiantou"></i></a>
+					</li>
+					<li>
+						<a href="#">直购价<i class="iconfont icon-shangshengjiantou"></i></a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<div class="filter-result-main">
@@ -241,7 +239,6 @@
 
 	</div>
 	@@include('footer.inc')
-<script src="../js/common.js"></script>
 <script src="../js/search-page.js"></script>
 </body>
 </html>
