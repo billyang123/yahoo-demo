@@ -1,18 +1,4 @@
-var $ = require('jquey');
-var getTm = {
-  day: function(time) {
-    return parseInt(time / 1000 / 60 / 60 / 24, 10);
-  },
-  hour: function(time) {
-    return parseInt(time / 1000 / 60 / 60, 10)
-  },
-  minute: function(time) {
-    return parseInt(time / 1000 / 60, 10)
-  },
-  seconds: function(time) {
-    return parseInt(time / 1000, 10)
-  }
-}
+var $ = require('jquery');
 var countDown = function(container,options) {
   this.$container = $(container);
   var optionsStr = this.$container.data('countdown');
@@ -32,7 +18,11 @@ var countDown = function(container,options) {
 }
 countDown.prototype = {
   init: function(){
-    this.shoutDown()
+    var _this = this;
+    this.shoutDown();
+    this.tm = setInterval(function(){
+      _this.shoutDown()
+    }, 1000)
   },
   setTm: function(time) {
     var _this = this;
@@ -44,8 +34,8 @@ countDown.prototype = {
       'ss': parseInt(_this.format.indexOf('mm') > -1 ? time/1000%60 : time/1000 ,10),
     }
     for (var idx in obj) {
-      if (str.format.indexOf(idx) > -1) {
-        str = str.replace(idx,obj[idx])
+      if (str.indexOf(idx) > -1) {
+        str = str.replace(idx,obj[idx] < 10 ? '0' + obj[idx] : obj[idx])
       }
     }
     this.$container.html(str);
@@ -55,20 +45,18 @@ countDown.prototype = {
       this.tm && clearInterval(this.tm);
       time = 0;
     }
+
     this.setTm(time);
   },
-  shoutDown:function(deadline) {
-    var _this = this;
-    var _time = new Date(deadline);
-    this.tm = setInterval(function(){
-      if(this.diffTime) {
-          _this.diffTime --;
-          _this.stTime(this.diffTime)
-      } else {
-        var nowtime = new Date();
-        _this.stTime(_time - nowtime)
-      }
-    }, 1000)
+  shoutDown:function() {
+    var _time = new Date(this.deadline);
+    if(this.diffTime) {
+        this.diffTime --;
+        this.stTime(this.diffTime)
+    } else {
+      var nowtime = new Date();
+      this.stTime(_time - nowtime)
+    }
   }
 };
 var defualts = {
