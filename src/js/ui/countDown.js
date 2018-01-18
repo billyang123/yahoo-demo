@@ -66,10 +66,9 @@ var defualts = {
 $.fn.countdown = function (options) {
   var me = this;
   var opts = $.extend({}, defualts, options);
-  var $e = $(this);
   this.each(function(){
     if(!$(this).data('countDown')) {
-      $(this).data('countDown', new countDown(this))
+      $(this).data('countDown', new countDown(this, opts))
     }
   })
   return this;
