@@ -34,6 +34,10 @@ var pkg = require('./package.json');
 gulp.task('copy:images', function (done) {
     gulp.src(['src/images/**/*']).pipe(gulp.dest('dist/images')).on('end', done);
 });
+//将图片拷贝到目标目录
+gulp.task('copy:mock', function (done) {
+    gulp.src(['src/mock/**/*']).pipe(gulp.dest('dist/mock')).on('end', done);
+});
 
 //压缩合并css, css中既有自己写的.less, 也有引入第三方库的.css
 gulp.task('lessmin', function (done) {
@@ -98,7 +102,7 @@ gulp.task('clean', function (done) {
 });
 
 gulp.task('watch', function (done) {
-    gulp.watch('src/**/*', ['lessmin', 'build-js', 'fileinclude'])
+    gulp.watch('src/**/*', ['lessmin', 'build-js', 'fileinclude', 'copy:mock'])
         .on('end', done);
 });
 
@@ -139,4 +143,4 @@ gulp.task("build-js", ['fileinclude'], function(callback) {
 gulp.task('default', ['connect', 'fileinclude', 'md5:css', 'md5:js', 'open']);
 
 //开发
-gulp.task('dev', ['connect', 'copy:images', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);
+gulp.task('dev', ['connect', 'copy:images', 'copy:mock', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);

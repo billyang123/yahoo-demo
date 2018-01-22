@@ -78,3 +78,27 @@ input[type="checkbox"] {
     }
   }
 }
+
+
+
+.yahoo-checkbox {
+  position: relative;
+  .checkbox {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    &:checked + .iconfont {
+      &:before { content: "\e612";}
+    }
+  }
+  .iconfont {
+    color: @org;
+    font-size: 20px;
+    &:before { content: "\e60f"; }
+  }
+}
+
+input[type="text"] {
+  width: 145px;
+}
