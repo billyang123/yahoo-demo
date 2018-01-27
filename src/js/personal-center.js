@@ -8,6 +8,7 @@ var template = Handlebars.template
 var api = utils.api;
 $('[data-countdown]').countdown();
 $('.js-table').table();
+
 function _indexPage() {
 	this.$container = $('#J_personal-center');
 	this.getInitData('centerIndex');

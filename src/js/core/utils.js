@@ -45,7 +45,8 @@ var _getApi = function(api) {
 		return api;
 	}
 	if (api instanceof Array) {
-		if (env == 'local') {
+
+		if (env == 'local' || env == 'file') {
 			return api[0]
 		} else {
 			return api[1]

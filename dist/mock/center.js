@@ -1,4 +1,4 @@
-{
+module.export = {
 	"status":"SUCCESS",
 	"data":{
 		"subData": {
@@ -127,36 +127,6 @@
 			{
 				"url":"https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_17010750092986082004%22%7D&n_type=0&p_from=1",
 				"title": "最开挂的“80后”人生：去年当选总理、今年升级当妈"
-			}
-		],
-		"biddingState": [
-			{
-				"name": "全部",
-				"key": "all"
-			},
-			{
-				"name": "成功得标",
-				"key": "bid"
-			},
-			{
-				"name": "预约出价",
-				"key": "offer"
-			},
-			{
-				"name": "竞标中",
-				"key": "offer"
-			},
-			{
-				"name": "出价被超越",
-				"key": "overoffer"
-			},
-			{
-				"name": "竞标失败",
-				"key": "bidfail"
-			},
-			{
-				"name": "弃标",
-				"key": "bid"
 			}
 		]
 	}
