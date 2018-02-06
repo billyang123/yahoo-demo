@@ -30,7 +30,10 @@
   "dependencies": {
     "distpicker": "^2.0.2",
     "fs": "^0.0.1-security",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
     "handlebars": "^4.0.11",
+    "through2": "^2.0.3",
     "webpack": "^3.10.0"
   }
 }

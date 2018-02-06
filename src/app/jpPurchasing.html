@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+@@include('header.inc')
+<body>
+	@@include('site.inc')
+	@@include('top.inc')
+	<div class="screen-outer">
+		<div class="screen-inner wrap clear">
+			@@include('outerNav.inc')
+			@@include('yahooServer.inc')
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="jp-purchasing-main">
+			<p>如何代购？</p>
+			<form class="pc-form">
+				<div class="pc-from-item">
+					<label class="label">商品详情页网址：</label>
+					<input type="text" >
+				</div>
+				<div class="pc-from-item">
+					<label class="label">商品名称：</label>
+					<input type="text" >
+				</div>
+				<div class="pc-from-item">
+					<label class="label">商品单价：</label>
+					<input type="text" >
+					<span>（日元）</span>
+				</div>
+				<div class="pc-from-item">
+					<label class="label">代购数量：</label>
+					<input type="text" >
+					<span>（件）</span>
+				</div>
+				<div class="pc-from-item">
+					<label class="label">规格说明：</label>
+					<textarea></textarea>
+					<span>（件）</span>
+				</div>
+			</form>
+		</div>
+	</div>
+	@@include('footer.inc')
+</body>
+</html>
+	

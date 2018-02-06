@@ -3450,3 +3450,7 @@ body .btn-xs {
 .pc-recharge .recharge-tab li a {
   color: #000;
 }
+.jp-purchasing-main {
+  background-color: #fff;
+  padding: 30px 50px;
+}

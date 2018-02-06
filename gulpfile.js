@@ -18,7 +18,10 @@ var gulp = require('gulp'),
     base64 = require('gulp-css-base64'),
     webpack = require('webpack'),
     webpackConfig = require('./webpack.config.js'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    through = require('through2'),
+    replace = require('gulp-replace'),
+    rename  = require('gulp-rename');
 var host = {
     path: 'dist/',
     port: 5555,
@@ -29,7 +32,11 @@ var browser = os.platform() === 'linux' ? 'Google chrome' : (
   os.platform() === 'darwin' ? 'Google chrome' : (
   os.platform() === 'win32' ? 'chrome' : 'firefox'));
 var pkg = require('./package.json');
-
+String.prototype.firstUpperCase = function(){
+    return this.replace(/\b(\w)(\w*)/g, function($0, $1, $2) {
+        return $1.toUpperCase() + $2.toLowerCase();
+    });
+}
 //将图片拷贝到目标目录
 gulp.task('copy:images', function (done) {
     gulp.src(['src/images/**/*']).pipe(gulp.dest('dist/images')).on('end', done);
@@ -137,6 +144,29 @@ gulp.task("build-js", ['fileinclude'], function(callback) {
         }));
         callback();
     });
+});
+
+gulp.task("ftp", function(callback) {
+    gulp.src('dist/css/*.css')
+        .pipe(gulp.dest('yahoofpt/Public/css'))
+    gulp.src('dist/js/*.js')
+        .pipe(gulp.dest('yahoofpt/Public/js'))
+    gulp.src('dist/images/*')
+        .pipe(gulp.dest('yahoofpt/Public/images'))
+    gulp.src('dist/app/*')
+        .pipe(through.obj(function(file,enc,cb){
+            console.log(file.relative);
+            console.log(file.path.split('.')[0]);
+            var name = file.relative.split('.');
+            if (name[1] == 'html') {
+                gulp.src('dist/app/'+ file.relative)
+                .pipe(replace(/(src|href)\=\"\.\.\/((js|css|images)\/.+\.(js|css|png|jpg|gif|html))\"/g, '$1="../Public/$2"'))
+                .pipe(rename(name[0].firstUpperCase() + '/index.html'))
+                .pipe(gulp.dest('yahoofpt'))
+            }
+            this.push(file);
+            cb();
+        }));
 });
 
 //发布
