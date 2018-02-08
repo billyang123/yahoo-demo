@@ -152,3 +152,22 @@
 .showpage a { display:block; width:15px; border:1px solid #ddd; height:60px; line-height:60px; background:#eee; text-align:center; font-size:18px; position:absolute; left:0; top:-62px; text-decoration:none; color:#999;}
 .showpage a#shownext { left:auto; right:0;}
 .showpage a:hover { background:#ccc; color:#777;}
+
+
+
+.clamp {
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	&-1 {
+		white-space: nowrap;
+		-webkit-line-clamp: 1;
+	}
+	&-2 {
+		-webkit-line-clamp: 2;	
+	}
+	&-3 {
+		-webkit-line-clamp: 3;	
+	}
+	overflow: hidden;
+}

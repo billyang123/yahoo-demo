@@ -10,6 +10,23 @@
     <link rel="stylesheet" href="../css/style.min.css">
     <script src="../js/common.js"></script>
 </head>
+<style>
+	.jp-purchasing-main .txt {
+		font-size: 14px;
+		width: 990px;
+		margin: 0 auto;
+	}
+	.jp-purchasing-main .label {
+		width: 145px;
+		text-align: right;
+	}
+	.jp-purchasing-main .pc-form {
+		background-color: #fff;
+	}
+	.jp-purchasing-main .table tr {
+		text-align: center;
+	}
+</style>
 <body>
 	<div class="site-nav site-nav-status-login">
 	<div class="site-nav-bd clear">
@@ -823,33 +840,101 @@
 		</div>
 	</div>
 	<div class="wrap">
-		<div class="jp-purchasing-main">
-			<p>如何代购？</p>
+		<div class="jp-purchasing-main conlistbox">
+			<p class="txt">
+				如何代购?您可以在以上热门网站(其他日本购物网站也可以),选择您需要代购的商品,将商品的相关信息填入下表中,点击【确认代购】【确定支付】完成付款就可以代购了。
+			</p>
 			<form class="pc-form">
 				<div class="pc-from-item">
 					<label class="label">商品详情页网址：</label>
-					<input type="text" >
+					<input type="text" style="width: 590px;">
 				</div>
 				<div class="pc-from-item">
 					<label class="label">商品名称：</label>
-					<input type="text" >
+					<input type="text" style="width: 590px;">
 				</div>
 				<div class="pc-from-item">
 					<label class="label">商品单价：</label>
-					<input type="text" >
+					<input type="text" style="width: 128px;">
 					<span>（日元）</span>
 				</div>
 				<div class="pc-from-item">
 					<label class="label">代购数量：</label>
-					<input type="text" >
+					<input type="text" style="width: 128px;">
 					<span>（件）</span>
 				</div>
 				<div class="pc-from-item">
 					<label class="label">规格说明：</label>
-					<textarea></textarea>
-					<span>（件）</span>
+					<textarea style="width: 590px;height: 70px;" placeholder="如商品尺寸，颜色等说明。"></textarea>
+				</div>
+				<div class="pc-from-item" style="text-align: center;padding: 20px;">
+					<button class="btn btn-primary btn-xs">确认代购</button>
 				</div>
 			</form>
+			<table class="ui celled table" align="center">
+				<thead>
+					<tr>
+						<th width="240">商品</th>
+						<th>规格</th>
+						<th>单价</th>
+						<th>数量</th>
+						<th>服务费</th>、
+						<th>日本银行转账费</th>
+						<th>其他费用</th>
+						<th width="120">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="clamp clamp-2">
+								是日本的法定货币，日元也经常在美元和欧元是日本的法定货币，日元也经常在美元和欧元是日本的法定货币，日元也经常在美元和欧元
+							</div>
+						</td>
+						<td>8360</td>
+						<td>1</td>
+						<td>780</td>
+						<td>23</td>
+						<td>418</td>
+						<td>300</td>
+						<td>
+							<div style="text-align: center;">
+								<button class="btn btn-default btn-xs">删除</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+			    <tr>
+					<th colspan="3">
+						<div class="total-price">
+							商品总价：8360（RMB 501.60元）
+						</div>
+				    </th>
+				    <th colspan="1">
+						共1件
+					</th>
+					<th colspan="5">
+						<p class="total-nopay">未付小计：900（RMB 54.81 元）</p>
+					</th>
+			  	</tr>
+				</tfoot>
+			</table>
+			<div class="total-account">
+				<h3 class="h3title">款项合计</h3>
+				<p class="yuer">目前账户余额：<span class="text-red">880</span> 元 <button class="btn btn-danger btn-xs">立即充值</button></p>
+				<p class="heji">款项合计：<span class="text-red">128.21</span> 元</p>
+			</div>
+			<div class="remarks">
+				<h3 class="h3title">我的备注</h3>
+				<div class="remarks-box">
+					<textarea style="width: 100%;border: 0;box-sizing: border-box; min-height: 60px;"></textarea>
+				</div>
+			</div>
+			<div class="submit-box">
+				<button class="btn btn-danger" type="submit">确定支付</button>
+				<a class="btn btn-default" href="#">返回</a>
+			</div>
 		</div>
 	</div>
 	<div class="footer">

@@ -391,6 +391,22 @@ a:active {
   background: #ccc;
   color: #777;
 }
+.clamp {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.clamp-1 {
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+}
+.clamp-2 {
+  -webkit-line-clamp: 2;
+}
+.clamp-3 {
+  -webkit-line-clamp: 3;
+}
 @font-face {
   font-family: "iconfont";
   src: url('//at.alicdn.com/t/font_523817_dji8f8yfxbmuc8fr.eot?t=1516524000677');
