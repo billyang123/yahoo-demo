@@ -4,19 +4,26 @@
 <body>
 	@@include('site.inc')
 	@@include('top.inc')
+	<div class="screen-outer">
+		<div class="screen-inner wrap clear">
+			@@include('outerNav.inc')
+			@@include('yahooServer.inc')
+		</div>
+	</div>
 	<div class="wrap conlistbox">
 		<form>
 			<h2 class="title">得标付款</h2>
 			<table class="ui celled table">
 				<thead>
 					<tr>
-						<th width="350">商品</th>
+						<th width="260">商品</th>
 						<th>卖家</th>
-						<th>得标价（円）</th>
-						<th>数量</th>
-						<th>服务费</th>
-						<th>日本银行转账费</th>
-						<th>其他费用</th>
+						<th width="100">得标价（円）</th>
+						<th width="50">数量</th>
+						<th width="90">服务费</th>
+						<th width="90">日本银行转账费</th>
+						<th width="90">其他费用</th>
+						<th width="90">到库检查拍照</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,12 +35,20 @@
 								<p class="hid">商品ID：h280984309</p>
 							</div>
 						</td>
-						<td>tyoufe77</td>
+						<td>是日本的法定货币，日元也经常在美元和欧元</td>
 						<td>8360</td>
 						<td>1</td>
 						<td>418</td>
 						<td>300</td>
 						<td>111</td>
+						<td>
+							<label class="radio-inline">
+								<input type="radio" name="inlineCheckbox5s5" id="" value="1"> 是
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="inlineCheckbox5s5" id="" value="2"> 否
+							</label>
+						</td>
 					</tr>
 					<tr>
 						<td>
@@ -49,6 +64,14 @@
 						<td>418</td>
 						<td>300</td>
 						<td>111</td>
+						<td>
+							<label class="radio-inline">
+								<input type="radio" name="inlineCheckbox55" id="" value="1"> 是
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="inlineCheckbox55" id="" value="2"> 否
+							</label>
+						</td>
 					</tr>
 				</tbody>
 				<tfoot>
@@ -59,7 +82,7 @@
 								<span class="total-count">共1件</span>
 							</p>
 				    </th>
-						<th colspan="3">
+						<th colspan="4">
 							<p class="total-nopay">未付小计：900（RMB 54.81 元）</p>
 						</th>
 			  	</tr>
@@ -68,7 +91,13 @@
 			<div class="total-account">
 				<h3 class="h3title">款项合计</h3>
 				<p class="yuer">目前账户余额：<span class="text-red">880</span> 元 <button class="btn btn-danger btn-xs">立即充值</button></p>
-				<p class="heji">款项合计：<span class="text-red">128.21</span> 元</p>
+				<p class="heji">
+					款项合计：<span class="text-red">128.21</span> 元，
+					抵用优惠券：<span class="text-red">128.21</span> 元
+				</p>
+				<p class="heji">
+					应付合计：<span class="text-red">128.21</span> 元
+				</p>
 			</div>
 			<div class="remarks">
 				<h3 class="h3title">我的备注</h3>

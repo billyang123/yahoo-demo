@@ -3466,6 +3466,25 @@ body .btn-xs {
 .pc-recharge .recharge-tab li a {
   color: #000;
 }
+.adress-pgbox {
+  width: 859px;
+  height: 434px;
+  background-image: url("../images/image_1518097921.273597.jpg");
+  background-repeat: no-repeat;
+  position: relative;
+}
+.adress-pgbox .input {
+  position: absolute;
+  background-color: #fff;
+  width: 165px;
+  height: 15px;
+  font-size: 13px;
+}
+.adress-pgbox .input_1 {
+  left: 500px;
+  top: 130px;
+  width: 165px;
+}
 .jp-purchasing-main {
   background-color: #fff;
   padding: 30px 50px;
