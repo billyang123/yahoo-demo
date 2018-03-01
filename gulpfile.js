@@ -22,6 +22,7 @@ var gulp = require('gulp'),
     through = require('through2'),
     replace = require('gulp-replace'),
     rename  = require('gulp-rename');
+    proxy = require('http-proxy-middleware');
 var host = {
     path: 'dist/',
     port: 5555,
@@ -118,7 +119,19 @@ gulp.task('connect', function () {
     connect.server({
         root: host.path,
         port: host.port,
-        livereload: true
+        livereload: true,
+        middleware: function(connect, opt) {
+            return [
+                proxy('/api',  {
+                    target: 'http://jp.freedaigou.cn',
+                    changeOrigin:true
+                })
+                // proxy('/otherServer', {
+                //     target: 'http://IP:Port',
+                //     changeOrigin:true
+                // })
+            ]
+        }
     });
 });
 

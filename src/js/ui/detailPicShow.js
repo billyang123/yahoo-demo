@@ -1,4 +1,4 @@
-var $ = jQuery = require('jquery');
+var $ = require('jquery');
 var detailPicShow = function(_obj){
 	var _box = $("#"+_obj.boxid);
 	var _sum = $("#"+_obj.sumid);
@@ -124,7 +124,7 @@ var detailPicShow = function(_obj){
 			"width":_arr[_index][8]+"px",
 		    "height":_arr[_index][9]+"px"
 		});
-		
+
 	};
 	imgPlaces();
 
@@ -136,7 +136,7 @@ var detailPicShow = function(_obj){
 		var _nowX = e.pageX - _imgout.offset().left;
 	    var _nowY = e.pageY - _imgout.offset().top;
 		var _moveX = _nowX-_gl_w,_moveY = _nowY-_gl_w;
-		
+
 		if(_nowX <= _gl_w){ _moveX = 0; }
 		if(_nowX >= _maxX){ _moveX = _maxX-_gl_w; }
 		if(_nowY <= _gl_w){ _moveY = 0;}

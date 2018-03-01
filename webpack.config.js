@@ -39,12 +39,23 @@ module.exports = {
             ui: srcDir + "/js/ui"
         }
     },
+    module: {
+      loaders: [
+        {
+          test: path.join(__dirname, 'src/js'),
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015']
+          }
+        }
+      ]
+    },
     plugins: [
         // new webpack.optimize.CommonsChunkPlugin('common.js'),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             chunks: chunks,
-            minChunks: 4 || chunks.length 
+            minChunks: 4 || chunks.length
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {

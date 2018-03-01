@@ -13,7 +13,7 @@ function _indexPage() {
 	this.$container = $('#J_personal-center');
 	this.getInitData('centerIndex');
 	this._bind();
-} 
+}
 _indexPage.prototype = {
 	getInitData: function(type) {
 		var _this = this;
@@ -43,7 +43,7 @@ _indexPage.prototype = {
 			success: function(res) {
 				console.log(res)
 				var data = res.data;
-				
+
 			}
 		})
 	},
@@ -54,4 +54,3 @@ _indexPage.prototype = {
 	}
 };
 new _indexPage();
-

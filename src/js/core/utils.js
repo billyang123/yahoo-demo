@@ -24,11 +24,6 @@ var doParams = function(data) {
 }
 var env = getEnv();
 var _ajax = function(options, isfilter) {
-
-	if (env == 'file') {
-		var res = require('..'+options.url);
-		return options.success(res)
-	}
 	var _setting = $.extend({},options,{
 		complete:function(XMLHttpRequest, textStatus) {
 			options.complete && options.complete(XMLHttpRequest, textStatus)
@@ -54,7 +49,7 @@ var _getApi = function(api) {
 	} else {
 		return api;
 	}
-	
+
 }
 var _getUrlParam = function(name, url) {
 	var rUl = '',r = null,resJson = {};
@@ -66,7 +61,7 @@ var _getUrlParam = function(name, url) {
 	if (name) {
 		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
 		r = rUl.match(reg);
-		if (r != null) return decodeURIComponent(r[2]); 
+		if (r != null) return decodeURIComponent(r[2]);
 		return null;
 	} else {
 		var arrStr = rUl.split('&');
