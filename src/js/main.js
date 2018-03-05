@@ -1,4 +1,7 @@
-var $ = require('jquery');
+import $ from 'jquery';
+
+import {ajax} from 'core/utils.js'
+
 window.$  = window.jQuery = $;
 function slideFn() {
     /** Main Slider **/
@@ -58,6 +61,23 @@ function yahooService() {
 }
 slideFn();
 yahooService();
+
+var mainPage = function() {
+  this.init();
+}
+mainPage.prototype = {
+  init() {
+
+  },
+  getCategory() {
+    ajax({
+      url: '/api/category.html',
+      success(res) {
+        
+      }
+    })
+  }
+};
 
 
 

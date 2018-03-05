@@ -29,7 +29,15 @@ var _ajax = function(options, isfilter) {
 			options.complete && options.complete(XMLHttpRequest, textStatus)
 		},
 		success:function(res) {
-			options.success && options.success(res);
+			if (isfilter) {
+				if (res.status == 0) {
+					options.success && options.success(res);
+				} else {
+					alert(res.message)
+				}
+			} else {
+				options.success && options.success(res);
+			}
 		}
 	})
 	console.log(_setting)
@@ -88,6 +96,17 @@ var _setUrlParam = function(obj, url) {
 		return url + '?' + str;
 	}
 }
+var fixer = function(options, callback) {
+	$.ajax({
+		url:`//api.fixer.io/latest?symbols=${options.symbols}&base=${options.base}`,
+		success(res) {
+			callback && callback(res)
+		}
+	})
+}
+fixer({symbols: 'JPY', base: 'CNY'}, (res) => {
+	$('.site-nav-bd-hl').html(`今日汇率：1RMB＝${res.rates.JPY}日元`)
+})
 var utils = {
 	getUrlParam: _getUrlParam,
 	setUrlParam: _setUrlParam,
