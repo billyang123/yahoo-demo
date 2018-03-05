@@ -102,6 +102,14 @@ Handlebars.registerHelper('debug', function() {
         Array.prototype.slice.call(arguments, 0, -1)
     ));
 });
+Handlebars.registerHelper('link', function(text,url, className) {
+    text = Handlebars.Utils.escapeExpression(text);
+    url  = Handlebars.Utils.escapeExpression(url);
+
+    var result = `<a url="${url}" ${className ? 'class="' + className +'"' : ''}>${text}</a>`;
+
+    return new Handlebars.SafeString(result);
+});
 module.exports = {
 	eR:eR,
 	template: function(temp, data) {

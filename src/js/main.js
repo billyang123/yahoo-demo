@@ -1,4 +1,9 @@
-var $ = require('jquery');
+import $ from 'jquery';
+
+import {ajax} from 'core/utils.js'
+import {template} from 'core/handlebars.js'
+
+
 window.$  = window.jQuery = $;
 function slideFn() {
     /** Main Slider **/
@@ -55,5 +60,49 @@ function yahooService() {
     ysLBox.fadeOut(100);
   })
 }
-slideFn();
-yahooService();
+
+var mainPage = function() {
+  this.init();
+}
+mainPage.prototype = {
+  init() {
+    this.getCategory();
+    this.getBanner();
+    this.getBtBanner();
+  },
+  getCategory() {
+    ajax({
+      url: '/api/category.html',
+      dataType: 'json',
+      success(res) {
+        $('#yahooService').html(template($('#yahooService-template').html(), res));
+        yahooService();
+      }
+    })
+  },
+  getBanner() {
+    ajax({
+      url: '/api/banner/c/9.html',
+      dataType: 'json',
+      success(res) {
+        const _html = template($('#yahooPromo-template').html(), res);
+        console.log($('#yahooPromo-template').html(), res, _html);
+        $('#PromoSlide').html(template($('#yahooPromo-template').html(), res));
+        slideFn();
+      }
+    })
+  },
+  getBtBanner() {
+    ajax({
+      url: '/api/banner/c/10.html',
+      dataType: 'json',
+      success(res) {
+        const strs = res.data.map((item) => {
+          return `<li><a href="${item.url}"><img src="http://jp.freedaigou.cn/Uploads/pic/ad/${item.img}" alt="${item.title}"></a></li>`
+        })
+        $('#sellerRecommended ul').html(strs.join(''))
+      }
+    })
+  }
+};
+new mainPage();

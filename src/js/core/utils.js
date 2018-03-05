@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var config = require('./config.js');
+import 'ui/scroll.js'
 var getEnv = function() {
 	if (window.location.protocol == 'file:') {
 		return 'file'
@@ -29,7 +30,15 @@ var _ajax = function(options, isfilter) {
 			options.complete && options.complete(XMLHttpRequest, textStatus)
 		},
 		success:function(res) {
-			options.success && options.success(res);
+			if (isfilter) {
+				if (res.status == 0) {
+					options.success && options.success(res);
+				} else {
+					alert(res.message)
+				}
+			} else {
+				options.success && options.success(res);
+			}
 		}
 	})
 	console.log(_setting)
@@ -88,6 +97,36 @@ var _setUrlParam = function(obj, url) {
 		return url + '?' + str;
 	}
 }
+var fixer = function(options, callback) {
+	$.ajax({
+		url:`//api.fixer.io/latest?symbols=${options.symbols}&base=${options.base}`,
+		success(res) {
+			callback && callback(res)
+		}
+	})
+}
+
+const siteInit = () => {
+	fixer({symbols: 'JPY', base: 'CNY'}, (res) => {
+		$('.site-nav-bd-hl').html(`今日汇率：1RMB＝${res.rates.JPY}日元`)
+	})
+	$.ajax({
+		url:'/api/announce.html',
+		dataType: 'json',
+		success(res) {
+			let data = res.data;
+			let strs = data.map((item) => {
+				return `<li><a href="#">${item.title}</a></li>`
+			})
+			$('.js-scorll-text ul').html(strs.join(''));
+			$(".js-scorll-text").myScroll({
+				speed:1000, //数值越大，速度越慢
+				rowHeight:36 //li的高度
+			});
+		}
+	})
+}
+siteInit();
 var utils = {
 	getUrlParam: _getUrlParam,
 	setUrlParam: _setUrlParam,

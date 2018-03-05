@@ -15,8 +15,14 @@
 			<a href="#" class="nav-link">QQ登陆</a>
 		</div>
 		<div class="site-nav-bd-r">
-			<div class="site-nav-bd-msg">
-				<a href="#">双11购物狂欢节</a>
+			<div class="site-nav-bd-msg js-scorll-text">
+				<ul>
+					<li><a href="#">双11购物狂欢节1</a></li>
+					<li><a href="#">双11购物狂欢节2</a></li>
+					<li><a href="#">双11购物狂欢节3</a></li>
+					<li><a href="#">双11购物狂欢节3</a></li>
+					<li><a href="#">双11购物狂欢节6</a></li>
+				</ul>
 			</div>
 			<div class="site-nav-bd-hl">
 				今日汇率：1日元＝0.061RMB

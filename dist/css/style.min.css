@@ -2048,7 +2048,16 @@ body .btn-xs {
 }
 .site-nav-bd-msg {
   float: left;
+  min-width: 240px;
+  height: 36px;
   width: 240px;
+  margin-right: 10px;
+  position: relative;
+}
+.site-nav-bd-msg ul {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .site-nav-bd-hl {
   float: left;
