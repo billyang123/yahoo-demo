@@ -45,7 +45,6 @@ function yahooService() {
   lisLink.mouseenter(function() {
     lisLink.removeClass('hover')
     var index = lisLink.index(this);
-    console.log(index)
     ysLItem.hide();
     lisLink.eq(index).addClass('hover');
     ysLItem.eq(index).show();
@@ -58,6 +57,3 @@ function yahooService() {
 }
 slideFn();
 yahooService();
-
-
-
