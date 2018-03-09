@@ -125,11 +125,11 @@ gulp.task('connect', function () {
                 proxy('/api',  {
                     target: 'http://jp.freedaigou.cn',
                     changeOrigin:true
+                }),
+                proxy('/spider', {
+                    target: 'http://spider.jipaimall.com',
+                    changeOrigin:true
                 })
-                // proxy('/otherServer', {
-                //     target: 'http://IP:Port',
-                //     changeOrigin:true
-                // })
             ]
         }
     });

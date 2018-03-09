@@ -110,6 +110,20 @@ Handlebars.registerHelper('link', function(text,url, className) {
 
     return new Handlebars.SafeString(result);
 });
+Handlebars.registerHelper('imgTag', function(text,url, className) {
+    text = Handlebars.Utils.escapeExpression(text);
+    url  = Handlebars.Utils.escapeExpression(url);
+
+    var result = `<a url="${url}" ${className ? 'class="' + className +'"' : ''}>${text}</a>`;
+
+    return new Handlebars.SafeString(result);
+});
+Handlebars.registerHelper("addOne",function(index){
+    return index+1;
+});
+Handlebars.registerHelper("get",function(data, key){
+    return eval(`data.${key}`);
+});
 module.exports = {
 	eR:eR,
 	template: function(temp, data) {

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-
+import countDown from 'ui/countDown.js'
 import {ajax} from 'core/utils.js'
 import {template} from 'core/handlebars.js'
 
@@ -69,6 +69,7 @@ mainPage.prototype = {
     this.getCategory();
     this.getBanner();
     this.getBtBanner();
+    this.getItems('c642230331')
   },
   getCategory() {
     ajax({
@@ -101,6 +102,23 @@ mainPage.prototype = {
           return `<li><a href="${item.url}"><img src="http://jp.freedaigou.cn/Uploads/pic/ad/${item.img}" alt="${item.title}"></a></li>`
         })
         $('#sellerRecommended ul').html(strs.join(''))
+      }
+    })
+  },
+  getItems(itemIds) {
+    ajax({
+      url: '/spider/api/',
+      dataType: 'json',
+      type: 'post',
+      data: {
+        op: '001019',
+        item: itemIds
+      },
+      success(res) {
+
+        console.log(res)
+        $('#itemList ul').html(template($('#itemList-template').html(), res));
+        $('[data-countdown]').countdown();
       }
     })
   }

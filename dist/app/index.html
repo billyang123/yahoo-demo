@@ -290,7 +290,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="product-tabpanel">
+			<div class="product-tabpanel" id="itemList">
 				<ul class="clear">
 					<li class="head-item">
 						<img src="../images/recommended_head_1.jpg" alt="">
@@ -360,53 +360,7 @@
 			<div class="seller-title">
 				<span>Yahoo!拍卖人气卖家推荐</span>
 			</div>
-			<ul class="clear">
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_03.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_05.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_07.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_09.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_11.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_18.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_19.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_20.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_21.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_22.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_28.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_29.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_30.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_31.png" alt=""></a>
-				</li>
-				<li>
-					<a href="#"><img src="../images/popular_seller/popular_seller_recommended_32.png" alt=""></a>
-				</li>
-			</ul>
+			<ul class="clear"></ul>
 		</div>
 	</div>
 	<div class="footer">
@@ -477,6 +431,21 @@
 			</div>
 			{{/each}}
 		</div>
+	</script>
+	<script id="itemList-template" type="text/x-handlebars-template">
+		{{#each data}}
+		<li class="product-item">
+			<a href="#">
+				<img src="{{get this 'imgs[0]'}}" alt="{{title}}">
+				<h3>{{title}}</h3>
+				<div class="info">
+					<p>当前价格：<em class="price">{{currency_unit}}{{get bid 'bid_price'}}</em></p>
+					<p>出价次数：{{deal_num}}次</p>
+					<p {{#if withbid}} data-countdown="{diffTime:{{remaining}},format: 'dd天hh时mm分ss秒'}" {{/if}}>竞拍结束</p>
+				</div>
+			</a>
+		</li>
+		{{/each}}
 	</script>
 	<script src="../js/main.js"></script>
 </body>

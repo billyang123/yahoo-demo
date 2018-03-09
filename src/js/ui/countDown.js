@@ -52,7 +52,7 @@ countDown.prototype = {
     var _time = new Date(this.deadline);
     if(this.diffTime) {
         this.diffTime --;
-        this.stTime(this.diffTime)
+        this.stTime(this.diffTime * 1000);
     } else {
       var nowtime = new Date();
       this.stTime(_time - nowtime)
