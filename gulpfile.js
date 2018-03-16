@@ -71,6 +71,7 @@ gulp.task('md5:css', ['sprite'], function (done) {
     gulp.src('dist/css/*.css')
         .pipe(md5(10, 'dist/app/*.html'))
         .pipe(gulp.dest('dist/css'))
+        .pipe(connect.reload())
         .on('end', done);
 });
 
@@ -82,6 +83,7 @@ gulp.task('fileinclude', function (done) {
           basepath: '@file'
         }))
         .pipe(gulp.dest('dist/app'))
+        .pipe(connect.reload())
         .on('end', done);
         // .pipe(connect.reload())
 });
@@ -110,10 +112,12 @@ gulp.task('clean', function (done) {
 });
 
 gulp.task('watch', function (done) {
-    gulp.watch('src/**/*', ['lessmin', 'build-js', 'fileinclude', 'copy:mock'])
+    gulp.watch('src/**/*', ['lessmin', 'build-js', 'fileinclude', 'copy:mock', 'reload'])
         .on('end', done);
 });
-
+gulp.task('reload', function () {
+  connect.reload()
+})
 gulp.task('connect', function () {
     console.log('connect------------');
     connect.server({
@@ -155,6 +159,7 @@ gulp.task("build-js", ['fileinclude'], function(callback) {
         gutil.log("[webpack:build-js]", stats.toString({
             colors: true
         }));
+        connect.reload();
         callback();
     });
 });

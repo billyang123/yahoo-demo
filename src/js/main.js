@@ -2,8 +2,8 @@ import $ from 'jquery';
 import countDown from 'ui/countDown.js'
 import {ajax} from 'core/utils.js'
 import {template} from 'core/handlebars.js'
-
-
+import remodal from 'ui/remodal.js';
+import calculation from 'ui/calculation.js';
 window.$  = window.jQuery = $;
 function slideFn() {
     /** Main Slider **/
@@ -62,14 +62,20 @@ function yahooService() {
 }
 
 var mainPage = function() {
+  this.proAllIds = [];
+  this.proIds = {};
   this.init();
 }
 mainPage.prototype = {
   init() {
+    var inst = $('[data-remodal-id]').remodal();
     this.getCategory();
     this.getBanner();
     this.getBtBanner();
-    this.getItems('c642230331')
+    this.getHotId();
+    $(document).on('opened', '[data-remodal-id]', function () {
+      new calculation();
+    });
   },
   getCategory() {
     ajax({
@@ -105,7 +111,44 @@ mainPage.prototype = {
       }
     })
   },
-  getItems(itemIds) {
+  gethotcat(proIds) {
+    var proIds = {};
+    var _this = this;
+    ajax({
+      url: '/api/hotcat.html',
+      dataType: 'json',
+      success(res) {
+        const _data = res.data || [];
+        let strs = '';
+        const result = _data.map((item) => {
+          item.productIds = _this.proIds[item.id];
+          return item;
+        })
+        $('#productRecommended').html(template($('#hot-items-template').html(), {data: result}));
+        _this.getItems(_this.proAllIds.join(','));
+      }
+    })
+  },
+  getHotId() {
+    let proIds = {};
+    let _this = this;
+    ajax({
+      url: '/api/hotid.html',
+      dataType: 'json',
+      success(res) {
+        const _data = res.data;
+        if (_data) {
+          _this.proAllIds = _data.map((item) => {
+            if (!_this.proIds[item.type_id]) _this.proIds[item.type_id] = [];
+            _this.proIds[item.type_id].push(item.product_id);
+            return item.product_id;
+          })
+        }
+        _this.gethotcat(proIds)
+      }
+    })
+  },
+  getItems(itemIds, callback) {
     ajax({
       url: '/spider/api/',
       dataType: 'json',
@@ -115,10 +158,13 @@ mainPage.prototype = {
         item: itemIds
       },
       success(res) {
-
-        console.log(res)
-        $('#itemList ul').html(template($('#itemList-template').html(), res));
+        $.each(res.data, (item) => {
+          $(`#productRecommended [data-id=${item.item_id}]`).html(
+            template($('#item-template').html(), item)
+          )
+        })
         $('[data-countdown]').countdown();
+        callback && callback()
       }
     })
   }

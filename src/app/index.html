@@ -9,77 +9,8 @@
 		<div class="screen-inner wrap clear">
 			@@include('outerNav.inc')
 			<div class="service-hd">Yahoo!JAPAN拍卖分类</div>
-			<div class="yahoo-service" id="yahooService"></div>
-			<script id="yahooService-template" type="text/x-handlebars-template">
-				<ul class="service-bd">
-					{{#each data}}
-					<li>
-						<a href="#">{{caption}}</a>
-					</li>
-					{{/each}}
-				</ul>
-				<div class="service-float">
-					{{#each data}}
-					<div class="service-float-item">
-						{{#each _child}}
-						<div class="service-panel clear">
-							<h5><a href="#">{{caption}}</a></h5>
-							<p>
-								{{#each _child}}
-								<a href="#">{{caption}}</a>
-								{{/each}}
-							</p>
-						</div>
-						{{/each}}
-					</div>
-					{{/each}}
-				</div>
-			</script>
-			<div class="yahoo-promo" id="PromoSlide">
-				<div class="slider-container">
-				    <div class="slide-item" style="display:block;">
-				        <img width="740" height="426" src="../images/01.jpg" />
-				    </div>
-				    <div class="slide-item">
-				        <img width="740" height="426" src="../images/02.jpg" />
-				    </div>
-				    <div class="slide-item">
-				        <img width="740" height="426" src="../images/03.jpg" />
-				    </div>
-				    <div class="slide-item">
-				        <img width="740" height="426" src="../images/04.jpg" />
-				    </div>
-				    <div class="slide-item">
-				        <img width="740" height="426" src="../images/05.jpg" />
-				    </div>
-				    <div class="slide-item">
-				        <img width="740" height="426" src="../images/03.jpg" />
-				    </div>
-				</div>
-				<div class="slide-text">
-					<div class="opacity-mask"></div>
-					<ul class="clear">
-					    <li class="curr">
-					    	<a href="javascript:void(0);">11区跨年特点大放送</a>
-					    </li>
-					    <li>
-					    	<a href="javascript:void(0);">专业相机</a>
-					    </li>
-					    <li>
-					    	<a href="javascript:void(0);">时尚腕表</a>
-					    </li>
-					    <li>
-					    	<a href="javascript:void(0);">品牌乐器</a>
-					    </li>
-					    <li>
-					    	<a href="javascript:void(0);">茶道铁壶</a>
-					    </li>
-					    <li>
-					    	<a href="javascript:void(0);">名品包包</a>
-					    </li>
-					</ul>
-				</div>
-			</div>
+			<div class="yahoo-service" id="yahooService" style="width: 220px;"></div>
+			<div class="yahoo-promo" id="PromoSlide"></div>
 			<script id="yahooPromo-template" type="text/x-handlebars-template">
 				<div class="slider-container">
 						{{#each data}}
@@ -146,7 +77,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="javascript:void(0);" data-remodal-target="calculation">
 						<div class="snl-iconbx">
 							<i class="iconfont icon-jisuanqi"></i>
 						</div>
@@ -177,6 +108,8 @@
 			<div class="seller-title">
 				<span>Yahoo!拍卖人气商品推荐</span>
 			</div>
+			<div id="productRecommended">
+			</div>
 			<div class="product-tab">
 				<ul class="clear">
 					<li>
@@ -190,7 +123,7 @@
 			<div class="product-tabpanel" id="itemList">
 				<ul class="clear">
 					<li class="head-item">
-						<img src="../images/recommended_head_1.jpg" alt="">
+						<img src="http://jp.freedaigou.cn/Ulowi/Tpl/default/Public/images/recommended_head_1.jpg" alt="">
 					</li>
 					<li class="product-item">
 						<a href="#">
@@ -286,21 +219,46 @@
 			{{/each}}
 		</div>
 	</script>
-	<script id="itemList-template" type="text/x-handlebars-template">
+	<script id="item-template" type="text/x-handlebars-template">
+		{{#with this}}
+		<a href="#">
+			<img src="{{get this 'imgs[0]'}}" alt="{{title}}">
+			<h3>{{title}}</h3>
+			<div class="info">
+				<p>当前价格：<em class="price">{{currency_unit}}{{get bid 'bid_price'}}</em></p>
+				<p>出价次数：{{deal_num}}次</p>
+				<p {{#if withbid}} data-countdown="{diffTime:{{remaining}},format: 'dd天hh时mm分ss秒'}" {{/if}}>竞拍结束</p>
+			</div>
+		</a>
+		{{/with}}
+	</script>
+	<script id="hot-items-template" type="text/x-handlebars-template">
 		{{#each data}}
-		<li class="product-item">
-			<a href="#">
-				<img src="{{get this 'imgs[0]'}}" alt="{{title}}">
-				<h3>{{title}}</h3>
-				<div class="info">
-					<p>当前价格：<em class="price">{{currency_unit}}{{get bid 'bid_price'}}</em></p>
-					<p>出价次数：{{deal_num}}次</p>
-					<p {{#if withbid}} data-countdown="{diffTime:{{remaining}},format: 'dd天hh时mm分ss秒'}" {{/if}}>竞拍结束</p>
-				</div>
-			</a>
-		</li>
+		<div class="product-tab">
+			<ul class="clear">
+				<li>
+					<a href="#" class="active">{{caption}}</a>
+				</li>
+				{{#each _child}}
+				<li>
+					<a href="#">{{caption}}</a>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+		<div class="product-tabpanel" id="itemList">
+			<ul class="clear">
+				<li class="head-item">
+					<img src="http://jp.freedaigou.cn/Ulowi/Tpl/default/Public/images/recommended_head_1.jpg" alt="">
+				</li>
+				{{#each productIds}}
+				<li class="product-item" data-id="{{this}}"></li>
+				{{/each}}
+			</ul>
+		</div>
 		{{/each}}
 	</script>
+	@@include('./modules/calculation.inc')
 	<script src="../js/main.js"></script>
 </body>
 </html>

@@ -107,8 +107,12 @@ var fixer = function(options, callback) {
 }
 
 const siteInit = () => {
-	fixer({symbols: 'JPY', base: 'CNY'}, (res) => {
-		$('.site-nav-bd-hl').html(`今日汇率：1RMB＝${res.rates.JPY}日元`)
+	fixer({symbols: 'CNY', base: 'JPY'}, (res) => {
+		window.rates = {
+			'JPY_CNY': res.rates.CNY
+		}
+		$('[data-rate]').data('rate', res.rates.CNY);
+		$('.site-nav-bd-hl').html(`今日汇率：1日元＝${res.rates.CNY}RMB`)
 	})
 	$.ajax({
 		url:'/api/announce.html',

@@ -163,28 +163,18 @@ function getYunPrice(t,w) {
 	})
 	return rv;
 }
-var getFixNum = function(number) {
+const getFixNum = function(number) {
 	return Math.round(number * 100) / 100;
 }
-var checkNum = function(number) {
+const checkNum = function(number) {
 	if(/^[-+]?[0-9]*\.?[0-9]+$/.test(number)) {
 		return parseFloat(number)
 	} else {
 		return 0;
 	}
 }
-var calc = new dataBind('calculation');
-var $node = $('#calculationModal'),
-	$submit = $node.find('.js-calculation'),
-	$reset = $node.find('.js-reset'),
-	$calItemPrice = $node.find('.calItemPrice'),
-	$calExciseTax = $node.find('.calExciseTax'),
-	$calLocalFreight = $node.find('.calLocalFreight'),
-	$calItemWeight = $node.find('.calItemWeight'),
-	$calItemMode = $node.find('.calItemMode'),
-	$calPackingCost = $node.find('.calPackingCost');
-var rate = window.rates ? window.rates.JPY_CNY : parseFloat($node.data('rate'));
-var setNum = function(rate, pirce, spsf, calLocalFreight, gjyf, calPackingCost, fwf) {
+const calc = new dataBind('calculation');
+const setNum = function(rate, pirce, spsf, calLocalFreight, gjyf, calPackingCost, fwf) {
 	calc.set('huilv', rate);
 	calc.set('spje', pirce);
 	calc.set('spsj', getFixNum(spsf));
@@ -193,29 +183,63 @@ var setNum = function(rate, pirce, spsf, calLocalFreight, gjyf, calPackingCost, 
 	calc.set('bzf', calPackingCost);
 	calc.set('yhhksxf', fwf);
 	var total = pirce + spsf + calLocalFreight + gjyf + calPackingCost + fwf;
-	console.log(total)
 	calc.set('hejirmb', getFixNum(total));
 	calc.set('hejiry', getFixNum(total * rate));
 }
-$submit.click(function(){
-	var pirce = checkNum($calItemPrice.val());
-	var spsf = pirce * checkNum($calExciseTax.val());
+function calcula() {
+  this.$node = $('#calculationModal'),
+  this.$submit = this.$node.find('.js-calculation'),
+  this.$reset = this.$node.find('.js-reset'),
+  this.$calItemPrice = this.$node.find('.calItemPrice'),
+  this.$calExciseTax = this.$node.find('.calExciseTax'),
+  this.$calLocalFreight = this.$node.find('.calLocalFreight'),
+  this.$calItemWeight = this.$node.find('.calItemWeight'),
+  this.$calItemMode = this.$node.find('.calItemMode'),
+  this.$calPackingCost = this.$node.find('.calPackingCost');
+  this.rate = parseFloat(this.$node.data('rate'));
+  this.init();
+}
+calcula.prototype = {
+  getRate() {
+    if(window.rates){
+      this.rate = window.rates.JPY_CNY;
+    } else {
+      this.rate = parseFloat(this.$node.data('rate'))
+    }
+    return this.rate;
+  },
+  init() {
+    this.getRate();
+    this._reset();
+    this._bind();
+  },
+  _reset() {
+    this.getRate();
+    this.$calItemPrice.val(''),
+    this.$calExciseTax.val('0'),
+    this.$calLocalFreight.val(''),
+    this.$calItemWeight.val(''),
+    this.$calItemMode.val('EMS'),
+    this.$calPackingCost.val('200');
+    setNum(this.rate, 0, 0,0,0,0,0);
+  },
+  _bind() {
+    this.$submit.click(function(){
+    	var pirce = checkNum(this.$calItemPrice.val());
+    	var spsf = pirce * checkNum(this.$calExciseTax.val());
 
-	var calLocalFreight = checkNum($calLocalFreight.val());
+    	var calLocalFreight = checkNum(this.$calLocalFreight.val());
 
-	var calItemMode = $calItemMode.val() || 0;
-	var calItemWeight = checkNum($calItemWeight.val()) * 1000;
-	var gjyf = getYunPrice(calItemMode, calItemWeight);
-	var calPackingCost = checkNum($calPackingCost.val());
-	var fwf = 300;
-	setNum(rate, pirce, spsf, calLocalFreight, gjyf, calPackingCost, fwf);
-})
-$reset.click(function(){
-	$calItemPrice.val(''),
-	$calExciseTax.val('0'),
-	$calLocalFreight.val(''),
-	$calItemWeight.val(''),
-	$calItemMode.val('EMS'),
-	$calPackingCost.val('200');
-	setNum(rate, 0, 0,0,0,0,0);
-})
+    	var calItemMode = this.$calItemMode.val() || 0;
+    	var calItemWeight = checkNum(this.$calItemWeight.val()) * 1000;
+    	var gjyf = getYunPrice(calItemMode, calItemWeight);
+    	var calPackingCost = checkNum(this.$calPackingCost.val());
+    	var fwf = 300;
+    	setNum(this.rate, pirce, spsf, calLocalFreight, gjyf, calPackingCost, fwf);
+    })
+    this.$reset.click(() => {
+    	this._reset()
+    })
+  }
+}
+module.exports = calcula

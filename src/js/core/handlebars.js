@@ -118,9 +118,6 @@ Handlebars.registerHelper('imgTag', function(text,url, className) {
 
     return new Handlebars.SafeString(result);
 });
-Handlebars.registerHelper("addOne",function(index){
-    return index+1;
-});
 Handlebars.registerHelper("get",function(data, key){
     return eval(`data.${key}`);
 });
