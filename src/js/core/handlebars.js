@@ -118,8 +118,20 @@ Handlebars.registerHelper('imgTag', function(text,url, className) {
 
     return new Handlebars.SafeString(result);
 });
-Handlebars.registerHelper("get",function(data, key){
-    return eval(`data.${key}`);
+Handlebars.registerHelper("get",function(data, keys){
+  if (!keys) return data;
+  var keyArr = keys.split('.');
+  var result = data;
+  keyArr.forEach((key) => {
+    // if (/^\d+$/.test(key)) {
+    //
+    // }
+    result = result[key]
+  })
+  return result;
+});
+Handlebars.registerHelper("getArr",function(data, index){
+    return data[index]
 });
 module.exports = {
 	eR:eR,

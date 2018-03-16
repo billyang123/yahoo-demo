@@ -93,7 +93,6 @@ mainPage.prototype = {
       dataType: 'json',
       success(res) {
         const _html = template($('#yahooPromo-template').html(), res);
-        console.log($('#yahooPromo-template').html(), res, _html);
         $('#PromoSlide').html(template($('#yahooPromo-template').html(), res));
         slideFn();
       }
@@ -120,11 +119,14 @@ mainPage.prototype = {
       success(res) {
         const _data = res.data || [];
         let strs = '';
+        _this.proAllIds = ['w223470611','v544291122','g259546281','b299723804','m244294935'];
         const result = _data.map((item) => {
           item.productIds = _this.proIds[item.id];
+          item.productIds = ['w223470611','v544291122','g259546281','b299723804','m244294935']
           return item;
         })
         $('#productRecommended').html(template($('#hot-items-template').html(), {data: result}));
+
         _this.getItems(_this.proAllIds.join(','));
       }
     })
@@ -158,7 +160,8 @@ mainPage.prototype = {
         item: itemIds
       },
       success(res) {
-        $.each(res.data, (item) => {
+        $.each(res.data, (index, item) => {
+          console.log(item);
           $(`#productRecommended [data-id=${item.item_id}]`).html(
             template($('#item-template').html(), item)
           )

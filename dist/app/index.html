@@ -366,9 +366,8 @@
 		</div>
 	</script>
 	<script id="item-template" type="text/x-handlebars-template">
-		{{#with this}}
-		<a href="#">
-			<img src="{{get this 'imgs[0]'}}" alt="{{title}}">
+		<a href="#" title="{{title}}">
+			<img src="{{get imgs '0'}}" alt="{{title}}">
 			<h3>{{title}}</h3>
 			<div class="info">
 				<p>当前价格：<em class="price">{{currency_unit}}{{get bid 'bid_price'}}</em></p>
@@ -376,7 +375,6 @@
 				<p {{#if withbid}} data-countdown="{diffTime:{{remaining}},format: 'dd天hh时mm分ss秒'}" {{/if}}>竞拍结束</p>
 			</div>
 		</a>
-		{{/with}}
 	</script>
 	<script id="hot-items-template" type="text/x-handlebars-template">
 		{{#each data}}
