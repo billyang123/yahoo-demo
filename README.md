@@ -1,13 +1,3 @@
-**注意：**
-**该demo15年构建，已经不维护了，当时还是采用1.0版本的webpack。现在webpack已经更新到2.0+，更多新功能和修改请参考[官网](https://webpack.js.org/)。**
-
--------------------------------------------------------------------------
-
-项目相关文章说明请见 [gulp + webpack 构建多页面前端项目][1]
-
-由于关注该主题的人比较多，所以还是整理了一下手上项目，给出了一个简单的demo, 希望能提供一些思路。
-你可能还需要根据项目情况做调整。
-
 为了支持类似fis的`__inline`和`__sprite`语法（base64和雪碧图），对依赖包`gulp-css-base64`和`gulp-css-spriter`都做了修改，所以暂时保留在node_modules中。你可以不必再下载这两个包。
 
 安装依赖包：
@@ -19,7 +9,30 @@
 发布：
 `gulp`
 
-Update:
-2017.2.24 -- devtool: 'source-map' 改为 '#source-map'， 兼容新版Chrome规则。
+测试爬虫api接口：http://spider.jipaimall.com/spider/apitest/
+```
+  proxy('/api',  {
+      target: 'http://jp.freedaigou.cn',
+      changeOrigin:true
+  }),
+  proxy('/spider', {
+      target: 'http://spider.jipaimall.com',
+      changeOrigin:true
+  })
+```
+#### api
+- `/spider/api/`  爬虫api
 
-[1]: https://github.com/fwon/blog/issues/17
+  ```
+  params:
+    op:001019
+    item: v544291122
+    category: 2084006142
+  ```
+- `/api/banner/c/9.html` 幻灯片
+- `/api/banner/c/10.html` 底部banner
+- `/api/category.html` 列表商品类别
+- `/api/hotcat.html` 热门推荐类别
+- `/api/hotId.html` 热门推荐ID, 参数 c:所属类别id, 不带参数列出所有
+- `/api/announce.html` 公告 ， 带参数 i:公告ID显示详情, 不带参数为列表最新20条
+- `/api/shipfee.html` 列表运费
