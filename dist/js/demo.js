@@ -1,1 +1,1 @@
-webpackJsonp([9],{13:function(e,t,u){"use strict";var a=u(0),n=function(e){return e&&e.__esModule?e:{default:e}}(a);u(2);n.default.ajax({url:"/api/index.html",success:function(e){(0,n.default)("#ApiArea").html(e)}})}},[13]);
+webpackJsonp([9],{13:function(e,t,u){"use strict";var a=u(0),n=function(e){return e&&e.__esModule?e:{default:e}}(a);u(1);n.default.ajax({url:"/api/index.html",success:function(e){(0,n.default)("#ApiArea").html(e)}})}},[13]);

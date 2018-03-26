@@ -131,14 +131,15 @@ const siteInit = () => {
 	})
 }
 siteInit();
-var utils = {
+const utils = {
 	getUrlParam: _getUrlParam,
+	URLPARAM:_getUrlParam(),
 	setUrlParam: _setUrlParam,
-	api: config.api,
 	env: env,
 	doParams: doParams,
 	ajax: _ajax,
-	getApi: _getApi
+	getApi: _getApi,
+	priceInc: config.priceInc
 }
 
 module.exports = utils
