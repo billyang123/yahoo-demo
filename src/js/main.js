@@ -119,10 +119,10 @@ mainPage.prototype = {
       success(res) {
         const _data = res.data || [];
         let strs = '';
-        _this.proAllIds = ['w223470611','v544291122','g259546281','b299723804','m244294935'];
+        _this.proAllIds = ['w145409337'];
         const result = _data.map((item) => {
           item.productIds = _this.proIds[item.id];
-          item.productIds = ['w223470611','v544291122','g259546281','b299723804','m244294935']
+          item.productIds = ['w145409337']
           return item;
         })
         $('#productRecommended').html(template($('#hot-items-template').html(), {data: result}));
