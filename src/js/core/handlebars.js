@@ -1,4 +1,5 @@
 var Handlebars = require('../lib/handlebars.min.js');
+var $ = require('jquery');
 var handleHelper = Handlebars.registerHelper("addOne",function(index){
     return index+1;
 });
@@ -130,13 +131,21 @@ Handlebars.registerHelper("get",function(data, keys){
   })
   return result;
 });
+const template = (temp, data) => {
+  var template = Handlebars.compile(temp);
+  return template(data)
+}
+const tempToHtml = (container, tempDom, data) => {
+  console.log($(tempDom).html(), data);
+  $(container).html(
+    template($(tempDom).html(), data)
+  )
+}
 Handlebars.registerHelper("getArr",function(data, index){
     return data[index]
 });
 module.exports = {
 	eR:eR,
-	template: function(temp, data) {
-		var template = Handlebars.compile(temp);
-		return template(data)
-	}
+	template,
+  tempToHtml
 }
